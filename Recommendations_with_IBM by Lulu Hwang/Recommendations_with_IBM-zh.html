@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Recommendations_with_IBM-zh-提交2-增加内容推荐</title>
+<title>Recommendations_with_IBM-zh-提交2-增加内容推荐-github</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,19 +13116,37 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="IBM-&#25512;&#33616;&#31995;&#32479;">IBM &#25512;&#33616;&#31995;&#32479;<a class="anchor-link" href="#IBM-&#25512;&#33616;&#31995;&#32479;">&#182;</a></h1><h2 id="&#30446;&#24405;">&#30446;&#24405;<a class="anchor-link" href="#&#30446;&#24405;">&#182;</a></h2><p>I. <a href="#Exploratory-Data-Analysis">探索性数据分析</a><br>
-II.<a href="#Rank">基于排名的推荐方法</a><br>
-III.<a href="#User-User">基于用户-用户的协同过滤</a><br>
-IV.<a href="#Content-Recs">基于内容的推荐方法（选修内容）</a><br>
-V. <a href="#Matrix-Fact">矩阵分解</a><br>
-VI.<a href="#conclusions">其他内容和总结</a></p>
+<h1 id="IBM-&#25512;&#33616;&#31995;&#32479;">IBM &#25512;&#33616;&#31995;&#32479;<a class="anchor-link" href="#IBM-&#25512;&#33616;&#31995;&#32479;">&#182;</a></h1><p>目录</p>
+<p>IBM 推荐系统
+简介
+对于此项目，需要分析用户与 IBM Watson Studio 平台上的文章进行的互动，并向他们推荐他们可能会喜欢的文章。下面是一个 IBM Watson 平台信息中心示例，其中展示了一些文章。<a href="https://dataplatform.cloud.ibm.com/">https://dataplatform.cloud.ibm.com/</a></p>
+<p>虽然上述信息中心只显示了最新的文章，但是可以创建一个推荐系统，向特定的用户显示最相关的文章。</p>
+<p>为了判断要向每个用户显示哪些文章，需要对 IBM Watson Studio 平台上的数据展开研究。可以创建一个帐户并加入该社区，这样可以进一步了解数据。</p>
+<p>该项目由以下几个任务组成</p>
+<p>I. 分析数据</p>
+<p>在创建任何推荐系统之前，需要了解即将用到的数据。深入分析数据，看看有何规律。针对将在 notebook 的整个后续阶段用到的数据提出几个基本问题。在此阶段先探索数据，然后在后面的部分详细思考如何创建推荐系统。</p>
+<p>II.基于排名的推荐方法</p>
+<p>要开始构建推荐系统，首先需要根据互动次数查找最热门的文章。由于文章没有评分，所以互动次数最多的文章肯定最热门。然后，可以将这些文章推荐给新用户（或者已知的一些用户）。</p>
+<p>III.基于用户-用户的协同过滤</p>
+<p>为了针对 IBM 平台的用户构建更好的推荐系统，可以根据用户互动过的文章找到相似的用户。然后，向相似的用户推荐这些文章。这样就可以向用户提供更加个性化的推荐。接下来需要实施这一步。</p>
+<p>IV.基于内容的推荐系统（选修内容）</p>
+<p>考虑到每篇文章的内容篇幅并不相同，可以通过多种方式实施基于内容的推荐系统。可以运用自然语言处理技能，以非常有创意的方式开发基于内容的推荐系统。</p>
+<p>V. 矩阵分解</p>
+<p>最后，将以机器学习的方式构建推荐系统。需要根据用户-文章互动进行矩阵分解。然后，根据分解结果判断用户与新文章的互动情况（提示：效果并不好）。最后，解释了继续使用哪些方法，并如何测试推荐系统在吸引用户方面的效果。</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#20934;&#22791;&#25968;&#25454;">&#20934;&#22791;&#25968;&#25454;<a class="anchor-link" href="#&#20934;&#22791;&#25968;&#25454;">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13140,8 +13158,8 @@ VI.<a href="#conclusions">其他内容和总结</a></p>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/user-item-interactions.csv&#39;</span><span class="p">)</span>
-<span class="n">df_content</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/articles_community.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/user-item-interactions.csv&#39;</span><span class="p">)</span>
+<span class="n">df_content</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/articles_community.csv&#39;</span><span class="p">)</span>
 <span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">df_content</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span>
 </pre></div>
@@ -13857,7 +13875,14 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#19968;&#37096;&#20998;&#65306;&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;"><a class="anchor" id="Exploratory-Data-Analysis">&#31532;&#19968;&#37096;&#20998;&#65306;&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;</a><a class="anchor-link" href="#&#31532;&#19968;&#37096;&#20998;&#65306;&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;">&#182;</a></h3><p>通过以下字典和单元格了解数据的描述性统计信息。</p>
+<h1 id="&#39033;&#30446;&#35814;&#32454;">&#39033;&#30446;&#35814;&#32454;<a class="anchor-link" href="#&#39033;&#30446;&#35814;&#32454;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;"><a class="anchor" id="Exploratory-Data-Analysis">&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;</a><a class="anchor-link" href="#&#25506;&#32034;&#24615;&#25968;&#25454;&#20998;&#26512;">&#182;</a></h2><p>通过以下字典和单元格了解数据的描述性统计信息。</p>
 <p><code>1.</code> 用户与数据集中的多少篇文章互动了？分布如何？以图表的形式描述每个用户与某篇文章互动的次数。</p>
 
 </div>
@@ -14305,7 +14330,7 @@ dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b8308a84a8&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2325a179240&gt;</pre>
 </div>
 
 </div>
@@ -16090,41 +16115,41 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>365</th>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A73C8&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7390&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7828&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259EE6E48&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0E10&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0400&gt;&gt;</td>
       <td>Live</td>
       <td>50</td>
     </tr>
     <tr>
       <th>692</th>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A73C8&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7390&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7828&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259EE6E48&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0E10&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0400&gt;&gt;</td>
       <td>Live</td>
       <td>221</td>
     </tr>
     <tr>
       <th>761</th>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A73C8&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7390&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7828&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259EE6E48&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0E10&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0400&gt;&gt;</td>
       <td>Live</td>
       <td>398</td>
     </tr>
     <tr>
       <th>970</th>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A73C8&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7390&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7828&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259EE6E48&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0E10&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0400&gt;&gt;</td>
       <td>Live</td>
       <td>577</td>
     </tr>
     <tr>
       <th>971</th>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A73C8&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7390&gt;&gt;</td>
-      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x000002B8309A7828&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259EE6E48&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0E10&gt;&gt;</td>
+      <td>&lt;bound method StringMethods.strip of &lt;pandas.core.strings.StringMethods object at 0x0000023259FD0400&gt;&gt;</td>
       <td>Live</td>
       <td>232</td>
     </tr>
@@ -16602,8 +16627,8 @@ memory usage: 1.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#20108;&#37096;&#20998;&#65306;&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;"><a class="anchor" id="Rank">&#31532;&#20108;&#37096;&#20998;&#65306;&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;</a><a class="anchor-link" href="#&#31532;&#20108;&#37096;&#20998;&#65306;&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;">&#182;</a></h3><p>与之前的课程不同，我们没有关于用户是否喜欢某篇文章的评分。我们只知道用户与文章互动了。在这些情形下，文章的热门程度只能通过用户与文章的互动频率来判断。</p>
-<p><code>1.</code> 填写以下函数，使其返回前 <strong>n</strong> 篇文章，按照互动次数从高到低排序。使用以下测试测试你的函数。</p>
+<h2 id="&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;"><a class="anchor" id="Rank">&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;</a><a class="anchor-link" href="#&#22522;&#20110;&#25490;&#21517;&#30340;&#25512;&#33616;&#26041;&#27861;">&#182;</a></h2><p>与之前的课程不同，我们没有关于用户是否喜欢某篇文章的评分。我们只知道用户与文章互动了。在这些情形下，文章的热门程度只能通过用户与文章的互动频率来判断。</p>
+<p><code>1.</code> 填写以下函数，使其返回前 <strong>n</strong> 篇文章，按照互动次数从高到低排序。使用以下测试测试函数。</p>
 
 </div>
 </div>
@@ -16935,7 +16960,7 @@ Your top_20 looks like the solution list! Nice job.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#19977;&#37096;&#20998;&#65306;&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;"><a class="anchor" id="User-User">&#31532;&#19977;&#37096;&#20998;&#65306;&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;</a><a class="anchor-link" href="#&#31532;&#19977;&#37096;&#20998;&#65306;&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;">&#182;</a></h3><p><code>1.</code> 使用以下函数调整 <strong>df</strong> dataframe 的形状，使行表示用户，并使列表示文章。</p>
+<h2 id="&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;"><a class="anchor" id="User-User">&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;</a><a class="anchor-link" href="#&#22522;&#20110;&#29992;&#25143;-&#29992;&#25143;&#30340;&#21327;&#21516;&#36807;&#28388;">&#182;</a></h2><p><code>1.</code> 使用以下函数调整 <strong>df</strong> dataframe 的形状，使行表示用户，并使列表示文章。</p>
 <ul>
 <li>每个<strong>用户</strong>只能在每<strong>行</strong>中出现一次。</li>
 </ul>
@@ -18626,7 +18651,7 @@ Your top_20 looks like the solution list! Nice job.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>2.</code> 完成以下函数，该函数应该接受 user_id，并提供与该用户最相似的有序用户列表（从最相似到最不相似）。返回的列表不应包含提供的 user_id，因为我们知道每个用户都与其本身相似。因为每个用户的结果是二元的，所以建议用两个用户的点积表示相似性。</p>
-<p>使用测试测试你的函数。</p>
+<p>使用测试测试函数。</p>
 
 </div>
 </div>
@@ -18706,7 +18731,7 @@ The 3 most similar users to user 46 are: [4201, 23, 3782]
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>3.</code> 创建了为每个用户提供最相似用户的函数后，你需要使用这些用户查找可以推荐的文章。完成以下函数，以返回向每个用户推荐的文章。</p>
+<p><code>3.</code> 创建了为每个用户提供最相似用户的函数后，需要使用这些用户查找可以推荐的文章。完成以下函数，以返回向每个用户推荐的文章。</p>
 
 </div>
 </div>
@@ -19068,7 +19093,7 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>5.</code> 请利用上述函数正确填写以下字典。然后对照解答检验该字典。按照以下注释提供必要的代码。</p>
+<p><code>5.</code> 请利用上述函数正确填写以下字典。然后对照解答检验该字典。</p>
 
 </div>
 </div>
@@ -19134,7 +19159,7 @@ The top 10 recommendations for user 20 are the following article names:
 1，定义每个文章被不同用户互动的次数为受欢迎度，依据总的受欢迎度选取文章推荐给新用户。<br>
 2，按照所有用户互动频率分5个级别，即分为5个群体小组，根据组内受欢迎度每组选取两个文章，将这10篇文章推荐给新用户。如果某文章在多个组内均被选中，则只选中最受欢迎组中的一次，其他组忽略。<br>
 3，根据新用户的注册时间、访问时间、或者邮箱地址等特征，找到用户群体相似度高的，推荐这批用户最受欢迎的文章，可以使互动次数最多的也可以是欢迎度最高的。</strong></p>
-<p><code>7.</code> 利用现有函数向以下新用户提供前 10 篇推荐文章。你可以对照我们的解答测试你的函数，确保在如何做出推荐方面与我们的想法一致。</p>
+<p><code>7.</code> 利用现有函数向以下新用户提供前 10 篇推荐文章。对照解答测试函数，确保在如何做出推荐方面与我们的想法一致。</p>
 
 </div>
 </div>
@@ -19192,15 +19217,15 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#22235;&#37096;&#20998;&#65306;&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;&#65288;&#36873;&#20462;&#20869;&#23481;&#65289;"><a class="anchor" id="Content-Recs">&#31532;&#22235;&#37096;&#20998;&#65306;&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;&#65288;&#36873;&#20462;&#20869;&#23481;&#65289;</a><a class="anchor-link" href="#&#31532;&#22235;&#37096;&#20998;&#65306;&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;&#65288;&#36873;&#20462;&#20869;&#23481;&#65289;">&#182;</a></h3><p>另一种推荐方法是对与某个术语相关的文章进行从高到低排名。内容可以是 <strong>doc_body</strong>、<strong>doc_description</strong> 或<strong>doc_full_name</strong>。创建基于内容的推荐系统并非只有一种方式，尤其是考虑到每列都包含与内容相关的信息。</p>
+<h2 id="&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;"><a class="anchor" id="Content-Recs">&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;</a><a class="anchor-link" href="#&#22522;&#20110;&#20869;&#23481;&#30340;&#25512;&#33616;&#26041;&#27861;">&#182;</a></h2><p>另一种推荐方法是对与某个术语相关的文章进行从高到低排名。内容可以是 <strong>doc_body</strong>、<strong>doc_description</strong> 或<strong>doc_full_name</strong>。创建基于内容的推荐系统并非只有一种方式，尤其是考虑到每列都包含与内容相关的信息。</p>
 <p><code>1.</code> 使用以下函数主体创建一个基于内容的推荐系统。由于这个推荐系统的正确答案不止一个，所以没有提供测试函数。如果你想尝试一种需要更多输入值的方法，可以更改函数输入。当前的输入值考虑到了你可能会使用基于内容的推荐方法。此外，你可能会使用满足“内容标准”的最热门推荐方法，总之，你在做出这些推荐时可以灵活选择方法。</p>
-<h3 id="&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;<a class="anchor-link" href="#&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#182;</a></h3>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -19226,28 +19251,20 @@ The top 10 recommendations for user 20 are the following article names:
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[nltk_data] Downloading package punkt to
-[nltk_data]     C:\Users\70961\AppData\Roaming\nltk_data...
-[nltk_data]   Unzipping tokenizers\punkt.zip.
-[nltk_data] Downloading package wordnet to
-[nltk_data]     C:\Users\70961\AppData\Roaming\nltk_data...
-[nltk_data]   Unzipping corpora\wordnet.zip.
-[nltk_data] Downloading package stopwords to
-[nltk_data]     C:\Users\70961\AppData\Roaming\nltk_data...
-[nltk_data]   Unzipping corpora\stopwords.zip.
+<pre>[nltk_data] &lt;urlopen error [Errno 2] No such file or directory&gt;
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[58]:</div>
+    <div class="prompt output_prompt">Out[56]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
+<pre>False</pre>
 </div>
 
 </div>
@@ -19258,7 +19275,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -19297,7 +19314,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop duplicate article_id and get tiles</span>
@@ -19326,7 +19343,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_similar_articles</span><span class="p">(</span><span class="n">article_id</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
@@ -19349,7 +19366,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_content_recs</span><span class="p">(</span><span class="n">_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">):</span>
@@ -19406,7 +19423,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> <span class="n">make_content_recs</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -19422,7 +19439,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+    <div class="prompt output_prompt">Out[61]:</div>
 
 
 
@@ -19441,24 +19458,76 @@ The top 10 recommendations for user 20 are the following article names:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>2.</code> 你已经创建了基于内容的推荐系统，接着在以下单元格中简要说明下这一基于内容的推荐系统是如何运行的。你觉得你的函数有哪些值得改进的地方吗？这一基于内容的推荐系统有什么新奇的地方吗？</p>
-<h3 id="&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;<a class="anchor-link" href="#&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#182;</a></h3><p><strong>在此处解释下这一基于内容的推荐系统。</strong></p>
+<p><strong>通过NLP处理title,包括提取词向量、去除停用词、词干提取，通过提取的词向量矩阵的点积运算，计算出各个title的相似度，以此来推荐某文章的相似文章。新奇的地方是，既可以基于用户的相似文章也可以推荐基于文章的相似文章。推荐函数包括用户和文章两个字段，如果给出了用户，则推荐该用户读过的文章的相似文章，如果给出了文章，则推荐该文章的相似文章,这种情况适用于该用户是新用户的情况。可以改进的地方是，可以对文章内容也进行同样的处理，通过NLP处理，可以更准确定位到相似文章。</strong></p>
 <p><code>3.</code> 根据注释使用这一基于内容的推荐系统对以下情形做出推荐。我们没有提供测试，因为在创建此基于内容的推荐系统时，可以有多个正确答案。</p>
-<h3 id="&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;<a class="anchor-link" href="#&#36825;&#37096;&#20998;&#24182;&#38750;&#36890;&#36807;&#39033;&#30446;&#24517;&#39035;&#23436;&#25104;&#30340;&#20219;&#21153;&#12290;&#20294;&#26159;&#65292;&#20320;&#21487;&#20197;&#20511;&#26426;&#23637;&#31034;&#20320;&#30340;&#25216;&#33021;&#12290;">&#182;</a></h3>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make recommendations for a brand new user</span>
-
-
-<span class="c1"># make a recommendations for a user who only has interacted with article id &#39;1427.0&#39;</span>
+<span class="n">make_content_recs</span><span class="p">(</span><span class="mi">1429</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[82]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[316, 1420, 164, 278, 237, 336, 295, 809, 480, 381]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make a recommendations for a user who only has interacted with article id &#39;1427.0&#39;</span>
+<span class="n">make_content_recs</span><span class="p">(</span><span class="mi">1427</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[84]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1420, 1422, 124, 164, 521, 437, 809, 80, 241, 313]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -19466,7 +19535,7 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#20116;&#37096;&#20998;&#65306;&#30697;&#38453;&#20998;&#35299;"><a class="anchor" id="Matrix-Fact">&#31532;&#20116;&#37096;&#20998;&#65306;&#30697;&#38453;&#20998;&#35299;</a><a class="anchor-link" href="#&#31532;&#20116;&#37096;&#20998;&#65306;&#30697;&#38453;&#20998;&#35299;">&#182;</a></h3><p>在此部分，你将利用矩阵分解向 IBM Watson Studio 平台上的用户推荐文章。</p>
+<h2 id="&#30697;&#38453;&#20998;&#35299;"><a class="anchor" id="Matrix-Fact">&#30697;&#38453;&#20998;&#35299;</a><a class="anchor-link" href="#&#30697;&#38453;&#20998;&#35299;">&#182;</a></h2><p>在此部分，你将利用矩阵分解向 IBM Watson Studio 平台上的用户推荐文章。</p>
 <p><code>1.</code> 你在上述<strong>第三部分</strong>的<strong>第一个问题</strong>中已经创建了 <strong>user_item</strong> 矩阵。接下来的第一个问题需要你运行单元格，为<strong>第五部分</strong>的其他步骤做好准备。</p>
 
 </div>
@@ -19474,7 +19543,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the matrix here</span>
@@ -19488,7 +19557,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># quick look at the matrix</span>
@@ -19505,7 +19574,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[59]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
@@ -19718,7 +19787,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Perform SVD on the User-Item Matrix Here</span>
@@ -19742,7 +19811,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_latent_feats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">700</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -19821,7 +19890,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">40000</span><span class="p">)</span>
@@ -19863,7 +19932,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">user_item_test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">user_item_train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
@@ -19879,7 +19948,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+    <div class="prompt output_prompt">Out[68]:</div>
 
 
 
@@ -19896,7 +19965,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">user_item_test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">user_item_train</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
@@ -19912,7 +19981,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[64]:</div>
+    <div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -19929,7 +19998,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">user_item_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">user_item_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
@@ -19945,7 +20014,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[65]:</div>
+    <div class="prompt output_prompt">Out[70]:</div>
 
 
 
@@ -19962,7 +20031,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">user_item_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">user_item_train</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
@@ -19978,7 +20047,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[66]:</div>
+    <div class="prompt output_prompt">Out[71]:</div>
 
 
 
@@ -19995,7 +20064,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace the values in the dictionary below</span>
@@ -20049,7 +20118,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fit SVD on the user_item_train matrix</span>
@@ -20063,7 +20132,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">u_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">s_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">vt_train</span><span class="o">.</span><span class="n">shape</span>
@@ -20079,7 +20148,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[69]:</div>
+    <div class="prompt output_prompt">Out[74]:</div>
 
 
 
@@ -20096,7 +20165,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">u_test</span> <span class="o">=</span> <span class="n">u_train</span><span class="p">[</span><span class="n">user_item_train</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">test_idx</span><span class="p">),</span> <span class="p">:]</span>
@@ -20114,7 +20183,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[70]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
@@ -20131,7 +20200,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#查看根据训练集，测试集有多少在测试集出现过的行、列可以被预测。</span>
@@ -20147,7 +20216,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_item_test_predicable</span><span class="o">.</span><span class="n">shape</span>
@@ -20163,7 +20232,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[72]:</div>
+    <div class="prompt output_prompt">Out[77]:</div>
 
 
 
@@ -20180,7 +20249,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_latent_feats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">700</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -20220,7 +20289,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -20254,46 +20323,46 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x17c43f350b8&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x2320013bef0&gt;]</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x17c43f5bf98&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x232000cae10&gt;]</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x17c43f6b780&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x232000dc208&gt;</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
@@ -20306,7 +20375,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
@@ -20319,7 +20388,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
@@ -20332,7 +20401,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[79]:</div>
 
 
 
@@ -20364,7 +20433,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -20398,46 +20467,46 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x17c5c48e278&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x23200185518&gt;]</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x17c5c4c0198&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x232001af8d0&gt;]</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x17c5c4c05c0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x232001afcf8&gt;</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -20450,7 +20519,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -20463,7 +20532,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -20476,7 +20545,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
@@ -20510,14 +20579,14 @@ The top 10 recommendations for user 20 are the following article names:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>6.</code> 在以下单元格中解释上个问题的结果。根据你得出的结果，讨论下你会如何判断上述推荐系统是否比用户目前查找文章的方式更好。</p>
-<p><strong>1，通过比较训练集测试集共同包含的行、列，得到通过训练集矩阵分解的模型可以预测的测试集元素中的20 行。所以SVD对于很多训练集中没有的用户或者电影是无法预测的，需要采用其他方式。
+<p><strong>1，通过比较训练集测试集共同包含的行、列，得到通过训练集矩阵分解的模型可以预测的测试集元素中的20 行。所以SVD对于很多训练集中没有的用户或者电影是无法预测的，需要采用其他方式。<br>
 2，如果按准确率比较，测试集的准确率表现不太好，随着特征数量的增加，测试集的准确率逐渐降低，如果从训练、测试整体的角度考虑，可以选择90个特征，这样测试集和训练集可以都达到0.7以上的准确率。但是考虑到矩阵非常稀疏，很多用户文章并没有互动，数据分布不平衡，所以准确率不是很好的衡量推荐效果的依据，所以可以考虑f1分数。<br>
 3，通过比较模型训练的f1分数，可以知道在170个特征的时候，训练集和测试集的总体表现达到最好，可以达到0.9分。超过170个特征数量后，测试集的得分开始降低，说明模型出现过拟合。<br>
-4，除了以上两种方式，还可以通过在线A/B测试比较推荐效果。
+4，除了以上两种方式，还可以通过在线A/B测试比较推荐效果。<br>
 5，为了优化推荐系统，除了以上推荐模型外，建议可以收集用户在线时间、文章页面停留时间、文章发布时间等其他信息，通过多种特征信息，能够提取更加细致的模型，提高推荐效果</strong></p>
 <p><a id='conclusions'></a></p>
-<h3 id="&#20854;&#20182;&#20869;&#23481;">&#20854;&#20182;&#20869;&#23481;<a class="anchor-link" href="#&#20854;&#20182;&#20869;&#23481;">&#182;</a></h3><p>你现在可以保存为每个用户推荐的文章，开发一个类来作出新的预测并更新结果，以及创建一个部署结果的应用。这些任务并不是此项目必须完成的任务。但是，在学完课程知识后，你肯定能够继续完成这些任务并改进你的项目。</p>
-<h2 id="&#24635;&#32467;">&#24635;&#32467;<a class="anchor-link" href="#&#24635;&#32467;">&#182;</a></h2><blockquote><p>恭喜！你已经完成 IBM 推荐系统项目。</p>
+<h2 id="&#20854;&#20182;&#20869;&#23481;">&#20854;&#20182;&#20869;&#23481;<a class="anchor-link" href="#&#20854;&#20182;&#20869;&#23481;">&#182;</a></h2><p>后续可以保存为每个用户推荐的文章，开发一个类来作出新的预测并更新结果，以及创建一个部署结果的应用。</p>
+<h1 id="&#24635;&#32467;">&#24635;&#32467;<a class="anchor-link" href="#&#24635;&#32467;">&#182;</a></h1><blockquote><p>本项目探讨了多种推荐方式，用基础算法从底层实现，另外对于矩阵模型的评价进行了探讨，对后推荐系统的搭建具有重要参考意义。</p>
 </blockquote>
 
 </div>
