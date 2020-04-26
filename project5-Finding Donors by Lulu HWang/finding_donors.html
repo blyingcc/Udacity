@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>finding_donors</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<title>finding_donors-github</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
 
 <style type="text/css">
     /*!
@@ -199,7 +204,6 @@ th {
   *:before,
   *:after {
     background: transparent !important;
-    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -6744,15 +6748,15 @@ button.close {
 *
 */
 /*!
- *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -6809,6 +6813,19 @@ button.close {
   border: solid 0.08em #eee;
   border-radius: .1em;
 }
+.fa-pull-left {
+  float: left;
+}
+.fa-pull-right {
+  float: right;
+}
+.fa.fa-pull-left {
+  margin-right: .3em;
+}
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
+/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right;
 }
@@ -6824,6 +6841,10 @@ button.close {
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -6846,31 +6867,31 @@ button.close {
   }
 }
 .fa-rotate-90 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .fa-rotate-180 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .fa-rotate-270 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 .fa-flip-horizontal {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 .fa-flip-vertical {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
@@ -7355,6 +7376,7 @@ button.close {
 .fa-twitter:before {
   content: "\f099";
 }
+.fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
 }
@@ -7367,6 +7389,7 @@ button.close {
 .fa-credit-card:before {
   content: "\f09d";
 }
+.fa-feed:before,
 .fa-rss:before {
   content: "\f09e";
 }
@@ -8004,7 +8027,8 @@ button.close {
 .fa-male:before {
   content: "\f183";
 }
-.fa-gittip:before {
+.fa-gittip:before,
+.fa-gratipay:before {
   content: "\f184";
 }
 .fa-sun-o:before {
@@ -8108,7 +8132,7 @@ button.close {
 .fa-digg:before {
   content: "\f1a6";
 }
-.fa-pied-piper:before {
+.fa-pied-piper-pp:before {
   content: "\f1a7";
 }
 .fa-pied-piper-alt:before {
@@ -8234,6 +8258,7 @@ button.close {
   content: "\f1ce";
 }
 .fa-ra:before,
+.fa-resistance:before,
 .fa-rebel:before {
   content: "\f1d0";
 }
@@ -8247,6 +8272,8 @@ button.close {
 .fa-git:before {
   content: "\f1d3";
 }
+.fa-y-combinator-square:before,
+.fa-yc-square:before,
 .fa-hacker-news:before {
   content: "\f1d4";
 }
@@ -8414,6 +8441,657 @@ button.close {
 }
 .fa-meanpath:before {
   content: "\f20c";
+}
+.fa-buysellads:before {
+  content: "\f20d";
+}
+.fa-connectdevelop:before {
+  content: "\f20e";
+}
+.fa-dashcube:before {
+  content: "\f210";
+}
+.fa-forumbee:before {
+  content: "\f211";
+}
+.fa-leanpub:before {
+  content: "\f212";
+}
+.fa-sellsy:before {
+  content: "\f213";
+}
+.fa-shirtsinbulk:before {
+  content: "\f214";
+}
+.fa-simplybuilt:before {
+  content: "\f215";
+}
+.fa-skyatlas:before {
+  content: "\f216";
+}
+.fa-cart-plus:before {
+  content: "\f217";
+}
+.fa-cart-arrow-down:before {
+  content: "\f218";
+}
+.fa-diamond:before {
+  content: "\f219";
+}
+.fa-ship:before {
+  content: "\f21a";
+}
+.fa-user-secret:before {
+  content: "\f21b";
+}
+.fa-motorcycle:before {
+  content: "\f21c";
+}
+.fa-street-view:before {
+  content: "\f21d";
+}
+.fa-heartbeat:before {
+  content: "\f21e";
+}
+.fa-venus:before {
+  content: "\f221";
+}
+.fa-mars:before {
+  content: "\f222";
+}
+.fa-mercury:before {
+  content: "\f223";
+}
+.fa-intersex:before,
+.fa-transgender:before {
+  content: "\f224";
+}
+.fa-transgender-alt:before {
+  content: "\f225";
+}
+.fa-venus-double:before {
+  content: "\f226";
+}
+.fa-mars-double:before {
+  content: "\f227";
+}
+.fa-venus-mars:before {
+  content: "\f228";
+}
+.fa-mars-stroke:before {
+  content: "\f229";
+}
+.fa-mars-stroke-v:before {
+  content: "\f22a";
+}
+.fa-mars-stroke-h:before {
+  content: "\f22b";
+}
+.fa-neuter:before {
+  content: "\f22c";
+}
+.fa-genderless:before {
+  content: "\f22d";
+}
+.fa-facebook-official:before {
+  content: "\f230";
+}
+.fa-pinterest-p:before {
+  content: "\f231";
+}
+.fa-whatsapp:before {
+  content: "\f232";
+}
+.fa-server:before {
+  content: "\f233";
+}
+.fa-user-plus:before {
+  content: "\f234";
+}
+.fa-user-times:before {
+  content: "\f235";
+}
+.fa-hotel:before,
+.fa-bed:before {
+  content: "\f236";
+}
+.fa-viacoin:before {
+  content: "\f237";
+}
+.fa-train:before {
+  content: "\f238";
+}
+.fa-subway:before {
+  content: "\f239";
+}
+.fa-medium:before {
+  content: "\f23a";
+}
+.fa-yc:before,
+.fa-y-combinator:before {
+  content: "\f23b";
+}
+.fa-optin-monster:before {
+  content: "\f23c";
+}
+.fa-opencart:before {
+  content: "\f23d";
+}
+.fa-expeditedssl:before {
+  content: "\f23e";
+}
+.fa-battery-4:before,
+.fa-battery:before,
+.fa-battery-full:before {
+  content: "\f240";
+}
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: "\f241";
+}
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: "\f242";
+}
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: "\f243";
+}
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: "\f244";
+}
+.fa-mouse-pointer:before {
+  content: "\f245";
+}
+.fa-i-cursor:before {
+  content: "\f246";
+}
+.fa-object-group:before {
+  content: "\f247";
+}
+.fa-object-ungroup:before {
+  content: "\f248";
+}
+.fa-sticky-note:before {
+  content: "\f249";
+}
+.fa-sticky-note-o:before {
+  content: "\f24a";
+}
+.fa-cc-jcb:before {
+  content: "\f24b";
+}
+.fa-cc-diners-club:before {
+  content: "\f24c";
+}
+.fa-clone:before {
+  content: "\f24d";
+}
+.fa-balance-scale:before {
+  content: "\f24e";
+}
+.fa-hourglass-o:before {
+  content: "\f250";
+}
+.fa-hourglass-1:before,
+.fa-hourglass-start:before {
+  content: "\f251";
+}
+.fa-hourglass-2:before,
+.fa-hourglass-half:before {
+  content: "\f252";
+}
+.fa-hourglass-3:before,
+.fa-hourglass-end:before {
+  content: "\f253";
+}
+.fa-hourglass:before {
+  content: "\f254";
+}
+.fa-hand-grab-o:before,
+.fa-hand-rock-o:before {
+  content: "\f255";
+}
+.fa-hand-stop-o:before,
+.fa-hand-paper-o:before {
+  content: "\f256";
+}
+.fa-hand-scissors-o:before {
+  content: "\f257";
+}
+.fa-hand-lizard-o:before {
+  content: "\f258";
+}
+.fa-hand-spock-o:before {
+  content: "\f259";
+}
+.fa-hand-pointer-o:before {
+  content: "\f25a";
+}
+.fa-hand-peace-o:before {
+  content: "\f25b";
+}
+.fa-trademark:before {
+  content: "\f25c";
+}
+.fa-registered:before {
+  content: "\f25d";
+}
+.fa-creative-commons:before {
+  content: "\f25e";
+}
+.fa-gg:before {
+  content: "\f260";
+}
+.fa-gg-circle:before {
+  content: "\f261";
+}
+.fa-tripadvisor:before {
+  content: "\f262";
+}
+.fa-odnoklassniki:before {
+  content: "\f263";
+}
+.fa-odnoklassniki-square:before {
+  content: "\f264";
+}
+.fa-get-pocket:before {
+  content: "\f265";
+}
+.fa-wikipedia-w:before {
+  content: "\f266";
+}
+.fa-safari:before {
+  content: "\f267";
+}
+.fa-chrome:before {
+  content: "\f268";
+}
+.fa-firefox:before {
+  content: "\f269";
+}
+.fa-opera:before {
+  content: "\f26a";
+}
+.fa-internet-explorer:before {
+  content: "\f26b";
+}
+.fa-tv:before,
+.fa-television:before {
+  content: "\f26c";
+}
+.fa-contao:before {
+  content: "\f26d";
+}
+.fa-500px:before {
+  content: "\f26e";
+}
+.fa-amazon:before {
+  content: "\f270";
+}
+.fa-calendar-plus-o:before {
+  content: "\f271";
+}
+.fa-calendar-minus-o:before {
+  content: "\f272";
+}
+.fa-calendar-times-o:before {
+  content: "\f273";
+}
+.fa-calendar-check-o:before {
+  content: "\f274";
+}
+.fa-industry:before {
+  content: "\f275";
+}
+.fa-map-pin:before {
+  content: "\f276";
+}
+.fa-map-signs:before {
+  content: "\f277";
+}
+.fa-map-o:before {
+  content: "\f278";
+}
+.fa-map:before {
+  content: "\f279";
+}
+.fa-commenting:before {
+  content: "\f27a";
+}
+.fa-commenting-o:before {
+  content: "\f27b";
+}
+.fa-houzz:before {
+  content: "\f27c";
+}
+.fa-vimeo:before {
+  content: "\f27d";
+}
+.fa-black-tie:before {
+  content: "\f27e";
+}
+.fa-fonticons:before {
+  content: "\f280";
+}
+.fa-reddit-alien:before {
+  content: "\f281";
+}
+.fa-edge:before {
+  content: "\f282";
+}
+.fa-credit-card-alt:before {
+  content: "\f283";
+}
+.fa-codiepie:before {
+  content: "\f284";
+}
+.fa-modx:before {
+  content: "\f285";
+}
+.fa-fort-awesome:before {
+  content: "\f286";
+}
+.fa-usb:before {
+  content: "\f287";
+}
+.fa-product-hunt:before {
+  content: "\f288";
+}
+.fa-mixcloud:before {
+  content: "\f289";
+}
+.fa-scribd:before {
+  content: "\f28a";
+}
+.fa-pause-circle:before {
+  content: "\f28b";
+}
+.fa-pause-circle-o:before {
+  content: "\f28c";
+}
+.fa-stop-circle:before {
+  content: "\f28d";
+}
+.fa-stop-circle-o:before {
+  content: "\f28e";
+}
+.fa-shopping-bag:before {
+  content: "\f290";
+}
+.fa-shopping-basket:before {
+  content: "\f291";
+}
+.fa-hashtag:before {
+  content: "\f292";
+}
+.fa-bluetooth:before {
+  content: "\f293";
+}
+.fa-bluetooth-b:before {
+  content: "\f294";
+}
+.fa-percent:before {
+  content: "\f295";
+}
+.fa-gitlab:before {
+  content: "\f296";
+}
+.fa-wpbeginner:before {
+  content: "\f297";
+}
+.fa-wpforms:before {
+  content: "\f298";
+}
+.fa-envira:before {
+  content: "\f299";
+}
+.fa-universal-access:before {
+  content: "\f29a";
+}
+.fa-wheelchair-alt:before {
+  content: "\f29b";
+}
+.fa-question-circle-o:before {
+  content: "\f29c";
+}
+.fa-blind:before {
+  content: "\f29d";
+}
+.fa-audio-description:before {
+  content: "\f29e";
+}
+.fa-volume-control-phone:before {
+  content: "\f2a0";
+}
+.fa-braille:before {
+  content: "\f2a1";
+}
+.fa-assistive-listening-systems:before {
+  content: "\f2a2";
+}
+.fa-asl-interpreting:before,
+.fa-american-sign-language-interpreting:before {
+  content: "\f2a3";
+}
+.fa-deafness:before,
+.fa-hard-of-hearing:before,
+.fa-deaf:before {
+  content: "\f2a4";
+}
+.fa-glide:before {
+  content: "\f2a5";
+}
+.fa-glide-g:before {
+  content: "\f2a6";
+}
+.fa-signing:before,
+.fa-sign-language:before {
+  content: "\f2a7";
+}
+.fa-low-vision:before {
+  content: "\f2a8";
+}
+.fa-viadeo:before {
+  content: "\f2a9";
+}
+.fa-viadeo-square:before {
+  content: "\f2aa";
+}
+.fa-snapchat:before {
+  content: "\f2ab";
+}
+.fa-snapchat-ghost:before {
+  content: "\f2ac";
+}
+.fa-snapchat-square:before {
+  content: "\f2ad";
+}
+.fa-pied-piper:before {
+  content: "\f2ae";
+}
+.fa-first-order:before {
+  content: "\f2b0";
+}
+.fa-yoast:before {
+  content: "\f2b1";
+}
+.fa-themeisle:before {
+  content: "\f2b2";
+}
+.fa-google-plus-circle:before,
+.fa-google-plus-official:before {
+  content: "\f2b3";
+}
+.fa-fa:before,
+.fa-font-awesome:before {
+  content: "\f2b4";
+}
+.fa-handshake-o:before {
+  content: "\f2b5";
+}
+.fa-envelope-open:before {
+  content: "\f2b6";
+}
+.fa-envelope-open-o:before {
+  content: "\f2b7";
+}
+.fa-linode:before {
+  content: "\f2b8";
+}
+.fa-address-book:before {
+  content: "\f2b9";
+}
+.fa-address-book-o:before {
+  content: "\f2ba";
+}
+.fa-vcard:before,
+.fa-address-card:before {
+  content: "\f2bb";
+}
+.fa-vcard-o:before,
+.fa-address-card-o:before {
+  content: "\f2bc";
+}
+.fa-user-circle:before {
+  content: "\f2bd";
+}
+.fa-user-circle-o:before {
+  content: "\f2be";
+}
+.fa-user-o:before {
+  content: "\f2c0";
+}
+.fa-id-badge:before {
+  content: "\f2c1";
+}
+.fa-drivers-license:before,
+.fa-id-card:before {
+  content: "\f2c2";
+}
+.fa-drivers-license-o:before,
+.fa-id-card-o:before {
+  content: "\f2c3";
+}
+.fa-quora:before {
+  content: "\f2c4";
+}
+.fa-free-code-camp:before {
+  content: "\f2c5";
+}
+.fa-telegram:before {
+  content: "\f2c6";
+}
+.fa-thermometer-4:before,
+.fa-thermometer:before,
+.fa-thermometer-full:before {
+  content: "\f2c7";
+}
+.fa-thermometer-3:before,
+.fa-thermometer-three-quarters:before {
+  content: "\f2c8";
+}
+.fa-thermometer-2:before,
+.fa-thermometer-half:before {
+  content: "\f2c9";
+}
+.fa-thermometer-1:before,
+.fa-thermometer-quarter:before {
+  content: "\f2ca";
+}
+.fa-thermometer-0:before,
+.fa-thermometer-empty:before {
+  content: "\f2cb";
+}
+.fa-shower:before {
+  content: "\f2cc";
+}
+.fa-bathtub:before,
+.fa-s15:before,
+.fa-bath:before {
+  content: "\f2cd";
+}
+.fa-podcast:before {
+  content: "\f2ce";
+}
+.fa-window-maximize:before {
+  content: "\f2d0";
+}
+.fa-window-minimize:before {
+  content: "\f2d1";
+}
+.fa-window-restore:before {
+  content: "\f2d2";
+}
+.fa-times-rectangle:before,
+.fa-window-close:before {
+  content: "\f2d3";
+}
+.fa-times-rectangle-o:before,
+.fa-window-close-o:before {
+  content: "\f2d4";
+}
+.fa-bandcamp:before {
+  content: "\f2d5";
+}
+.fa-grav:before {
+  content: "\f2d6";
+}
+.fa-etsy:before {
+  content: "\f2d7";
+}
+.fa-imdb:before {
+  content: "\f2d8";
+}
+.fa-ravelry:before {
+  content: "\f2d9";
+}
+.fa-eercast:before {
+  content: "\f2da";
+}
+.fa-microchip:before {
+  content: "\f2db";
+}
+.fa-snowflake-o:before {
+  content: "\f2dc";
+}
+.fa-superpowers:before {
+  content: "\f2dd";
+}
+.fa-wpexplorer:before {
+  content: "\f2de";
+}
+.fa-meetup:before {
+  content: "\f2e0";
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
 }
 /*!
 *
@@ -8694,6 +9372,10 @@ div.traceback-wrapper {
   max-width: 800px;
   margin: auto;
 }
+div.traceback-wrapper pre.traceback {
+  max-height: 600px;
+  overflow: auto;
+}
 /**
  * Primary styles
  *
@@ -8719,6 +9401,10 @@ body > #header {
   z-index: 100;
 }
 body > #header #header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   box-sizing: border-box;
@@ -8750,13 +9436,16 @@ body > #header .header-bar {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-@media (max-width: 991px) {
-  #ipython_notebook {
-    margin-left: 10px;
-  }
-}
 [dir="rtl"] #ipython_notebook {
+  margin-right: 10px;
+  margin-left: 0;
+}
+[dir="rtl"] #ipython_notebook.pull-left {
   float: right !important;
+  float: right;
+}
+.flex-spacer {
+  flex: 1;
 }
 #noscript {
   width: auto;
@@ -8791,8 +9480,14 @@ body > #header .header-bar {
 input.ui-button {
   padding: 0.3em 0.9em;
 }
+span#kernel_logo_widget {
+  margin: 0 10px;
+}
 span#login_widget {
   float: right;
+}
+[dir="rtl"] span#login_widget {
+  float: left;
 }
 span#login_widget > .button,
 #logout {
@@ -8908,6 +9603,9 @@ span#login_widget > .button .badge,
   overflow: auto;
   flex: 1;
 }
+.modal-header {
+  cursor: move;
+}
 @media (min-width: 768px) {
   .modal .modal-dialog {
     width: 700px;
@@ -8928,6 +9626,19 @@ span#login_widget > .button .badge,
   display: inline-block;
   margin-bottom: -4px;
 }
+[dir="rtl"] .center-nav form.pull-left {
+  float: right !important;
+  float: right;
+}
+[dir="rtl"] .center-nav .navbar-text {
+  float: right;
+}
+[dir="rtl"] .navbar-inner {
+  text-align: right;
+}
+[dir="rtl"] div.text-left {
+  text-align: right;
+}
 /*!
 *
 * IPython tree view
@@ -8944,34 +9655,42 @@ span#login_widget > .button .badge,
   margin: 0;
 }
 .alternate_upload input.fileinput {
-  text-align: center;
-  vertical-align: middle;
-  display: inline;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
   opacity: 0;
   z-index: 2;
-  width: 12ex;
-  margin-right: -12ex;
+}
+.alternate_upload .btn-xs > input.fileinput {
+  margin: -1px -5px;
 }
 .alternate_upload .btn-upload {
+  position: relative;
   height: 22px;
+}
+::-webkit-file-upload-button {
+  cursor: pointer;
 }
 /**
  * Primary styles
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
   padding-bottom: 4px;
+}
+[dir="rtl"] ul#tabs.nav-tabs > li {
+  float: right;
+}
+[dir="rtl"] ul#tabs.nav.nav-tabs {
+  padding-right: 0;
 }
 ul.breadcrumb a:focus,
 ul.breadcrumb a:hover {
@@ -8991,15 +9710,13 @@ ul.breadcrumb span {
 .list_toolbar .tree-buttons {
   padding-top: 1px;
 }
-[dir="rtl"] .list_toolbar .tree-buttons {
+[dir="rtl"] .list_toolbar .tree-buttons .pull-right {
   float: left !important;
+  float: left;
 }
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
+[dir="rtl"] .list_toolbar .col-sm-4,
+[dir="rtl"] .list_toolbar .col-sm-8 {
+  float: right;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9055,7 +9772,7 @@ ul.breadcrumb span {
 .list_item > div input {
   margin-right: 7px;
   margin-left: 14px;
-  vertical-align: baseline;
+  vertical-align: text-bottom;
   line-height: 22px;
   position: relative;
   top: -1px;
@@ -9065,6 +9782,9 @@ ul.breadcrumb span {
   margin-left: -1px;
   vertical-align: baseline;
   line-height: 22px;
+}
+[dir="rtl"] .list_item > div input {
+  margin-right: 0;
 }
 .new-file input[type=checkbox] {
   visibility: hidden;
@@ -9080,6 +9800,14 @@ ul.breadcrumb span {
   margin-left: 7px;
   line-height: 22px;
   vertical-align: baseline;
+}
+.item_modified {
+  margin-right: 7px;
+  margin-left: 7px;
+}
+[dir="rtl"] .item_modified.pull-right {
+  float: left !important;
+  float: left;
 }
 .item_buttons {
   line-height: 1em;
@@ -9108,6 +9836,14 @@ ul.breadcrumb span {
   margin-right: 7px;
   float: left;
 }
+[dir="rtl"] .item_buttons.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .item_buttons .kernel-name {
+  margin-left: 7px;
+  float: right;
+}
 .toolbar_info {
   height: 24px;
   line-height: 24px;
@@ -9133,18 +9869,32 @@ ul.breadcrumb span {
   background-color: transparent;
   font-weight: bold;
 }
+.sort_button {
+  display: inline-block;
+  padding-left: 7px;
+}
+[dir="rtl"] .sort_button.pull-right {
+  float: left !important;
+  float: left;
+}
 #tree-selector {
   padding-right: 0px;
-}
-[dir="rtl"] #tree-selector a {
-  float: right;
 }
 #button-select-all {
   min-width: 50px;
 }
+[dir="rtl"] #button-select-all.btn {
+  float: right ;
+}
 #select-all {
   margin-left: 7px;
   margin-right: 2px;
+  margin-top: 2px;
+  height: 16px;
+}
+[dir="rtl"] #select-all.pull-left {
+  float: right !important;
+  float: right;
 }
 .menu_icon {
   margin-right: 2px;
@@ -9162,6 +9912,12 @@ ul.breadcrumb span {
   -moz-osx-font-smoothing: grayscale;
   content: "\f114";
 }
+.folder_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.folder_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .folder_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9178,6 +9934,12 @@ ul.breadcrumb span {
   content: "\f02d";
   position: relative;
   top: -1px;
+}
+.notebook_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.notebook_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .notebook_icon:before.pull-left {
   margin-right: .3em;
@@ -9197,6 +9959,12 @@ ul.breadcrumb span {
   top: -1px;
   color: #5cb85c;
 }
+.running_notebook_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.running_notebook_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .running_notebook_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9214,6 +9982,12 @@ ul.breadcrumb span {
   position: relative;
   top: -2px;
 }
+.file_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.file_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .file_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9228,8 +10002,11 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
+#new-menu .dropdown-header {
+  font-size: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 0 3px;
+  margin: -3px 20px 0;
 }
 .kernel-menu-icon {
   padding-right: 12px;
@@ -9276,9 +10053,6 @@ ul#new-menu {
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
 }
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
-}
 .delete-button {
   display: none;
 }
@@ -9286,6 +10060,12 @@ ul#new-menu {
   display: none;
 }
 .rename-button {
+  display: none;
+}
+.move-button {
+  display: none;
+}
+.download-button {
   display: none;
 }
 .shutdown-button {
@@ -9328,6 +10108,12 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
+.dirty-indicator.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator.fa-pull-right {
+  margin-left: .3em;
+}
 .dirty-indicator.pull-left {
   margin-right: .3em;
 }
@@ -9342,6 +10128,12 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
+}
+.dirty-indicator-dirty.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-dirty.fa-pull-right {
+  margin-left: .3em;
 }
 .dirty-indicator-dirty.pull-left {
   margin-right: .3em;
@@ -9358,6 +10150,12 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
+.dirty-indicator-clean.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-clean.fa-pull-right {
+  margin-left: .3em;
+}
 .dirty-indicator-clean.pull-left {
   margin-right: .3em;
 }
@@ -9372,6 +10170,12 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f00c";
+}
+.dirty-indicator-clean:before.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-clean:before.fa-pull-right {
+  margin-left: .3em;
 }
 .dirty-indicator-clean:before.pull-left {
   margin-right: .3em;
@@ -9417,14 +10221,132 @@ ul#new-menu {
     box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
   }
 }
+.CodeMirror-dialog {
+  background-color: #fff;
+}
 /*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -9503,12 +10425,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -9521,27 +10451,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -9737,7 +10679,9 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -9747,11 +10691,24 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -10005,6 +10962,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph > img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -10043,7 +11003,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -10203,39 +11163,35 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 .rendered_html ul {
   list-style: disc;
-  margin: 0em 2em;
-  padding-left: 0px;
 }
 .rendered_html ul ul {
   list-style: square;
-  margin: 0em 2em;
+  margin-top: 0;
 }
 .rendered_html ul ul ul {
   list-style: circle;
-  margin: 0em 2em;
 }
 .rendered_html ol {
   list-style: decimal;
-  margin: 0em 2em;
-  padding-left: 0px;
 }
 .rendered_html ol ol {
   list-style: upper-alpha;
-  margin: 0em 2em;
+  margin-top: 0;
 }
 .rendered_html ol ol ol {
   list-style: lower-alpha;
-  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol {
   list-style: lower-roman;
-  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol ol {
   list-style: decimal;
-  margin: 0em 2em;
 }
 .rendered_html * + ul {
   margin-top: 1em;
@@ -10249,14 +11205,23 @@ div.output_unrecognized a:hover {
 }
 .rendered_html pre {
   margin: 1em 2em;
+  padding: 0px;
+  background-color: #fff;
+}
+.rendered_html code {
+  background-color: #eff0f1;
+}
+.rendered_html p code {
+  padding: 1px 5px;
+}
+.rendered_html pre code {
+  background-color: #fff;
 }
 .rendered_html pre,
 .rendered_html code {
   border: 0;
-  background-color: #fff;
   color: #000;
   font-size: 100%;
-  padding: 0px;
 }
 .rendered_html blockquote {
   margin: 1em 2em;
@@ -10264,24 +11229,36 @@ div.output_unrecognized a:hover {
 .rendered_html table {
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
+  border: none;
   border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
 }
 .rendered_html tr,
 .rendered_html th,
 .rendered_html td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: 1em 2em;
-}
-.rendered_html td,
-.rendered_html th {
-  text-align: left;
+  text-align: right;
   vertical-align: middle;
-  padding: 4px;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
 }
 .rendered_html th {
   font-weight: bold;
+}
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
 }
 .rendered_html * + table {
   margin-top: 1em;
@@ -10308,6 +11285,15 @@ div.output_unrecognized a:hover {
 .rendered_html img.unconfined,
 .rendered_html svg.unconfined {
   max-width: none;
+}
+.rendered_html .alert {
+  margin-bottom: initial;
+}
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] .rendered_html p {
+  text-align: right;
 }
 div.text_cell {
   /* Old browsers */
@@ -10362,8 +11348,17 @@ h6:hover .anchor-link {
   overflow-x: auto;
   overflow-y: hidden;
 }
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered .rendered_html td {
+  max-width: none;
+}
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -10500,6 +11495,28 @@ kbd {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+.jupyter-keybindings {
+  padding: 1px;
+  line-height: 24px;
+  border-bottom: 1px solid gray;
+}
+.jupyter-keybindings input {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.jupyter-keybindings i {
+  padding: 6px;
+}
+.well code {
+  background-color: #ffffff;
+  border-color: #ababab;
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 /* CSS for the cell toolbar */
 .celltoolbar {
   border: thin solid #CFCFCF;
@@ -10632,6 +11649,152 @@ select[multiple].celltoolbar select {
   margin-left: 5px;
   margin-right: 5px;
 }
+.tags_button_container {
+  width: 100%;
+  display: flex;
+}
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+.tag-container > * {
+  margin: 0 4px;
+}
+.remove-tag-btn {
+  margin-left: 4px;
+}
+.tags-input {
+  display: flex;
+}
+.cell-tag:last-child:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  /* Fade to background color of cell toolbar */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), #EEE);
+}
+.tags-input > * {
+  margin-left: 4px;
+}
+.cell-tag,
+.tags-input input,
+.tags-input button {
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 1px;
+  box-shadow: none;
+  width: inherit;
+  font-size: inherit;
+  height: 22px;
+  line-height: 22px;
+  padding: 0px 4px;
+  display: inline-block;
+}
+.cell-tag:focus,
+.tags-input input:focus,
+.tags-input button:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.cell-tag::-moz-placeholder,
+.tags-input input::-moz-placeholder,
+.tags-input button::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.cell-tag:-ms-input-placeholder,
+.tags-input input:-ms-input-placeholder,
+.tags-input button:-ms-input-placeholder {
+  color: #999;
+}
+.cell-tag::-webkit-input-placeholder,
+.tags-input input::-webkit-input-placeholder,
+.tags-input button::-webkit-input-placeholder {
+  color: #999;
+}
+.cell-tag::-ms-expand,
+.tags-input input::-ms-expand,
+.tags-input button::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.cell-tag[disabled],
+.tags-input input[disabled],
+.tags-input button[disabled],
+.cell-tag[readonly],
+.tags-input input[readonly],
+.tags-input button[readonly],
+fieldset[disabled] .cell-tag,
+fieldset[disabled] .tags-input input,
+fieldset[disabled] .tags-input button {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.cell-tag[disabled],
+.tags-input input[disabled],
+.tags-input button[disabled],
+fieldset[disabled] .cell-tag,
+fieldset[disabled] .tags-input input,
+fieldset[disabled] .tags-input button {
+  cursor: not-allowed;
+}
+textarea.cell-tag,
+textarea.tags-input input,
+textarea.tags-input button {
+  height: auto;
+}
+select.cell-tag,
+select.tags-input input,
+select.tags-input button {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.cell-tag,
+textarea.tags-input input,
+textarea.tags-input button,
+select[multiple].cell-tag,
+select[multiple].tags-input input,
+select[multiple].tags-input button {
+  height: auto;
+}
+.cell-tag,
+.tags-input button {
+  padding: 0px 4px;
+}
+.cell-tag {
+  background-color: #fff;
+  white-space: nowrap;
+}
+.tags-input input[type=text]:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
 .completions {
   position: absolute;
   z-index: 110;
@@ -10657,16 +11820,28 @@ select[multiple].celltoolbar select {
 .completions select option.context {
   color: #286090;
 }
-#kernel_logo_widget {
-  float: right !important;
-  float: right;
-}
 #kernel_logo_widget .current_kernel_logo {
   display: none;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 32px;
   height: 32px;
+}
+[dir="rtl"] #kernel_logo_widget {
+  float: left !important;
+  float: left;
+}
+.modal .modal-body .move-path {
+  display: flex;
+  flex-direction: row;
+  justify-content: space;
+  align-items: center;
+}
+.modal .modal-body .move-path .server-root {
+  padding-right: 20px;
+}
+.modal .modal-body .move-path .path-input {
+  flex: 1;
 }
 #menubar {
   box-sizing: border-box;
@@ -10688,11 +11863,41 @@ select[multiple].celltoolbar select {
 #menubar .navbar-collapse {
   clear: left;
 }
+[dir="rtl"] #menubar .navbar-toggle {
+  float: right;
+}
+[dir="rtl"] #menubar .navbar-collapse {
+  clear: right;
+}
+[dir="rtl"] #menubar .navbar-nav {
+  float: right;
+}
+[dir="rtl"] #menubar .nav {
+  padding-right: 0px;
+}
+[dir="rtl"] #menubar .navbar-nav > li {
+  float: right;
+}
+[dir="rtl"] #menubar .navbar-right {
+  float: left !important;
+}
+[dir="rtl"] ul.dropdown-menu {
+  text-align: right;
+  left: auto;
+}
+[dir="rtl"] ul#new-menu.dropdown-menu {
+  right: auto;
+  left: 0;
+}
 .nav-wrapper {
   border-bottom: 1px solid #e7e7e7;
 }
 i.menu-icon {
   padding-top: 4px;
+}
+[dir="rtl"] i.menu-icon.pull-right {
+  float: left !important;
+  float: left;
 }
 ul#help_menu li a {
   overflow: hidden;
@@ -10700,6 +11905,17 @@ ul#help_menu li a {
 }
 ul#help_menu li a i {
   margin-right: -1.2em;
+}
+[dir="rtl"] ul#help_menu li a {
+  padding-left: 2.2em;
+}
+[dir="rtl"] ul#help_menu li a i {
+  margin-right: 0;
+  margin-left: -1.2em;
+}
+[dir="rtl"] ul#help_menu li a i.pull-right {
+  float: left !important;
+  float: left;
 }
 .dropdown-submenu {
   position: relative;
@@ -10709,6 +11925,10 @@ ul#help_menu li a i {
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
+}
+[dir="rtl"] .dropdown-submenu > .dropdown-menu {
+  right: 100%;
+  margin-right: -1px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -10727,11 +11947,23 @@ ul#help_menu li a i {
   margin-top: 2px;
   margin-right: -10px;
 }
+.dropdown-submenu > a:after.fa-pull-left {
+  margin-right: .3em;
+}
+.dropdown-submenu > a:after.fa-pull-right {
+  margin-left: .3em;
+}
 .dropdown-submenu > a:after.pull-left {
   margin-right: .3em;
 }
 .dropdown-submenu > a:after.pull-right {
   margin-left: .3em;
+}
+[dir="rtl"] .dropdown-submenu > a:after {
+  float: left;
+  content: "\f0d9";
+  margin-right: 0;
+  margin-left: -10px;
 }
 .dropdown-submenu:hover > a:after {
   color: #262626;
@@ -10748,6 +11980,10 @@ ul#help_menu li a i {
   float: right;
   z-index: 10;
 }
+[dir="rtl"] #notification_area {
+  float: left !important;
+  float: left;
+}
 .indicator_area {
   float: right !important;
   float: right;
@@ -10758,6 +11994,10 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
+}
+[dir="rtl"] .indicator_area {
+  float: left !important;
+  float: left;
 }
 #kernel_indicator {
   float: right !important;
@@ -10775,6 +12015,12 @@ ul#help_menu li a i {
   padding-left: 5px;
   padding-right: 5px;
 }
+[dir="rtl"] #kernel_indicator {
+  float: left !important;
+  float: left;
+  border-left: 0;
+  border-right: 1px solid;
+}
 #modal_indicator {
   float: right !important;
   float: right;
@@ -10785,6 +12031,10 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
+}
+[dir="rtl"] #modal_indicator {
+  float: left !important;
+  float: left;
 }
 #readonly-indicator {
   float: right !important;
@@ -10815,6 +12065,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f040";
 }
+.edit_mode .modal_indicator:before.fa-pull-left {
+  margin-right: .3em;
+}
+.edit_mode .modal_indicator:before.fa-pull-right {
+  margin-left: .3em;
+}
 .edit_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
 }
@@ -10829,6 +12085,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: ' ';
+}
+.command_mode .modal_indicator:before.fa-pull-left {
+  margin-right: .3em;
+}
+.command_mode .modal_indicator:before.fa-pull-right {
+  margin-left: .3em;
 }
 .command_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
@@ -10845,6 +12107,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f10c";
 }
+.kernel_idle_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_idle_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .kernel_idle_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10859,6 +12127,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f111";
+}
+.kernel_busy_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_busy_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .kernel_busy_icon:before.pull-left {
   margin-right: .3em;
@@ -10875,6 +12149,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f1e2";
 }
+.kernel_dead_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_dead_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .kernel_dead_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10889,6 +12169,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f127";
+}
+.kernel_disconnected_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_disconnected_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .kernel_disconnected_icon:before.pull-left {
   margin-right: .3em;
@@ -11279,27 +12565,46 @@ div#pager .ui-resizable-handle::after {
   flex: 1;
 }
 span.save_widget {
-  margin-top: 6px;
+  height: 30px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 50%;
+  flex: 1;
 }
 span.save_widget span.filename {
-  height: 1em;
+  height: 100%;
   line-height: 1em;
-  padding: 3px;
   margin-left: 16px;
   border: none;
   font-size: 146.5%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   border-radius: 2px;
 }
 span.save_widget span.filename:hover {
   background-color: #e6e6e6;
 }
+[dir="rtl"] span.save_widget.pull-left {
+  float: right !important;
+  float: right;
+}
+[dir="rtl"] span.save_widget span.filename {
+  margin-left: 0;
+  margin-right: 16px;
+}
 span.checkpoint_status,
 span.autosave_status {
   font-size: small;
+  white-space: nowrap;
+  padding: 0 5px;
 }
 @media (max-width: 767px) {
   span.save_widget {
     font-size: small;
+    padding: 0 0 0 5px;
   }
   span.checkpoint_status,
   span.autosave_status {
@@ -11343,6 +12648,9 @@ span.autosave_status {
   margin-top: 0px;
   margin-left: 5px;
 }
+.toolbar-btn-label {
+  margin-left: 6px;
+}
 #maintoolbar {
   margin-bottom: -3px;
   margin-top: -8px;
@@ -11362,6 +12670,10 @@ span.autosave_status {
 }
 .select-xs {
   height: 24px;
+}
+[dir="rtl"] .btn-group > .btn,
+.btn-group-vertical > .btn {
+  float: right;
 }
 .pulse,
 .dropdown-menu > li > a.pulse,
@@ -11512,6 +12824,10 @@ ul.typeahead-list i {
   margin-left: -10px;
   width: 18px;
 }
+[dir="rtl"] ul.typeahead-list i {
+  margin-left: 0;
+  margin-right: -10px;
+}
 ul.typeahead-list {
   max-height: 80vh;
   overflow: auto;
@@ -11520,6 +12836,13 @@ ul.typeahead-list > li > a {
   /** Firefox bug **/
   /* see https://github.com/jupyter/notebook/issues/559 */
   white-space: normal;
+}
+ul.typeahead-list  > li > a.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .typeahead-list {
+  text-align: right;
 }
 .cmd-palette .modal-body {
   padding: 7px;
@@ -11531,10 +12854,19 @@ ul.typeahead-list > li > a {
   outline: none;
 }
 .no-shortcut {
-  display: none;
+  min-width: 20px;
+  color: transparent;
+}
+[dir="rtl"] .no-shortcut.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .command-shortcut.pull-right {
+  float: left !important;
+  float: left;
 }
 .command-shortcut:before {
-  content: "(command)";
+  content: "(command mode)";
   padding-right: 3px;
   color: #777777;
 }
@@ -11543,6 +12875,10 @@ ul.typeahead-list > li > a {
   padding-right: 3px;
   color: #777777;
 }
+[dir="rtl"] .edit-shortcut.pull-right {
+  float: left !important;
+  float: left;
+}
 #find-and-replace #replace-preview .match,
 #find-and-replace #replace-preview .insert {
   background-color: #BBDEFB;
@@ -11550,6 +12886,12 @@ ul.typeahead-list > li > a {
   border-style: solid;
   border-width: 1px;
   border-radius: 0px;
+}
+[dir="ltr"] #find-and-replace .input-group-btn + .form-control {
+  border-left: none;
+}
+[dir="rtl"] #find-and-replace .input-group-btn + .form-control {
+  border-right: none;
 }
 #find-and-replace #replace-preview .replace .match {
   background-color: #FFCDD2;
@@ -11747,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11772,38 +13114,31 @@ div#notebook {
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;">&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;<a class="anchor-link" href="#&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;">&#182;</a></h1><h2 id="&#30417;&#30563;&#23398;&#20064;">&#30417;&#30563;&#23398;&#20064;<a class="anchor-link" href="#&#30417;&#30563;&#23398;&#20064;">&#182;</a></h2><h2 id="&#39033;&#30446;2:-&#20026;CharityML&#23547;&#25214;&#25424;&#29486;&#32773;">&#39033;&#30446;2: &#20026;<em>CharityML</em>&#23547;&#25214;&#25424;&#29486;&#32773;<a class="anchor-link" href="#&#39033;&#30446;2:-&#20026;CharityML&#23547;&#25214;&#25424;&#29486;&#32773;">&#182;</a></h2>
+<p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
+<div class="toc"><ul class="toc-item"><li><span><a href="#机器学习纳米学位" data-toc-modified-id="机器学习纳米学位-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>机器学习纳米学位</a></span><ul class="toc-item"><li><span><a href="#监督学习" data-toc-modified-id="监督学习-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>监督学习</a></span></li><li><span><a href="#为CharityML寻找捐献者" data-toc-modified-id="为CharityML寻找捐献者-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>为<em>CharityML</em>寻找捐献者</a></span></li><li><span><a href="#开始" data-toc-modified-id="开始-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>开始</a></span></li><li><span><a href="#探索数据" data-toc-modified-id="探索数据-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>探索数据</a></span><ul class="toc-item"><li><span><a href="#练习：数据探索" data-toc-modified-id="练习：数据探索-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>练习：数据探索</a></span></li></ul></li><li><span><a href="#准备数据" data-toc-modified-id="准备数据-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>准备数据</a></span><ul class="toc-item"><li><span><a href="#获得特征和标签" data-toc-modified-id="获得特征和标签-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>获得特征和标签</a></span></li><li><span><a href="#转换倾斜的连续特征" data-toc-modified-id="转换倾斜的连续特征-1.5.2"><span class="toc-item-num">1.5.2&nbsp;&nbsp;</span>转换倾斜的连续特征</a></span></li><li><span><a href="#规一化数字特征" data-toc-modified-id="规一化数字特征-1.5.3"><span class="toc-item-num">1.5.3&nbsp;&nbsp;</span>规一化数字特征</a></span></li><li><span><a href="#练习：数据预处理" data-toc-modified-id="练习：数据预处理-1.5.4"><span class="toc-item-num">1.5.4&nbsp;&nbsp;</span>练习：数据预处理</a></span></li><li><span><a href="#混洗和切分数据" data-toc-modified-id="混洗和切分数据-1.5.5"><span class="toc-item-num">1.5.5&nbsp;&nbsp;</span>混洗和切分数据</a></span></li></ul></li><li><span><a href="#评价模型性能" data-toc-modified-id="评价模型性能-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>评价模型性能</a></span><ul class="toc-item"><li><span><a href="#评价方法和朴素的预测器" data-toc-modified-id="评价方法和朴素的预测器-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>评价方法和朴素的预测器</a></span></li><li><span><a href="#问题-1---天真的预测器的性能" data-toc-modified-id="问题-1---天真的预测器的性能-1.6.2"><span class="toc-item-num">1.6.2&nbsp;&nbsp;</span>问题 1 - 天真的预测器的性能</a></span></li></ul></li><li><span><a href="#监督学习模型" data-toc-modified-id="监督学习模型-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>监督学习模型</a></span><ul class="toc-item"><li><span><a href="#问题-2---模型应用" data-toc-modified-id="问题-2---模型应用-1.7.1"><span class="toc-item-num">1.7.1&nbsp;&nbsp;</span>问题 2 - 模型应用</a></span></li><li><span><a href="#模型1" data-toc-modified-id="模型1-1.7.2"><span class="toc-item-num">1.7.2&nbsp;&nbsp;</span>模型1</a></span></li><li><span><a href="#模型2" data-toc-modified-id="模型2-1.7.3"><span class="toc-item-num">1.7.3&nbsp;&nbsp;</span>模型2</a></span></li><li><span><a href="#模型3" data-toc-modified-id="模型3-1.7.4"><span class="toc-item-num">1.7.4&nbsp;&nbsp;</span>模型3</a></span></li><li><span><a href="#练习---创建一个训练和预测的流水线" data-toc-modified-id="练习---创建一个训练和预测的流水线-1.7.5"><span class="toc-item-num">1.7.5&nbsp;&nbsp;</span>练习 - 创建一个训练和预测的流水线</a></span></li><li><span><a href="#练习：初始模型的评估" data-toc-modified-id="练习：初始模型的评估-1.7.6"><span class="toc-item-num">1.7.6&nbsp;&nbsp;</span>练习：初始模型的评估</a></span></li></ul></li><li><span><a href="#提高效果" data-toc-modified-id="提高效果-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>提高效果</a></span><ul class="toc-item"><li><span><a href="#问题-3---选择最佳的模型" data-toc-modified-id="问题-3---选择最佳的模型-1.8.1"><span class="toc-item-num">1.8.1&nbsp;&nbsp;</span>问题 3 - 选择最佳的模型</a></span></li><li><span><a href="#问题-4---用通俗的话解释模型" data-toc-modified-id="问题-4---用通俗的话解释模型-1.8.2"><span class="toc-item-num">1.8.2&nbsp;&nbsp;</span>问题 4 - 用通俗的话解释模型</a></span></li><li><span><a href="#练习：模型调优" data-toc-modified-id="练习：模型调优-1.8.3"><span class="toc-item-num">1.8.3&nbsp;&nbsp;</span>练习：模型调优</a></span></li><li><span><a href="#问题-5---最终模型评估" data-toc-modified-id="问题-5---最终模型评估-1.8.4"><span class="toc-item-num">1.8.4&nbsp;&nbsp;</span>问题 5 - 最终模型评估</a></span><ul class="toc-item"><li><span><a href="#结果:" data-toc-modified-id="结果:-1.8.4.1"><span class="toc-item-num">1.8.4.1&nbsp;&nbsp;</span>结果:</a></span></li></ul></li></ul></li><li><span><a href="#特征的重要性" data-toc-modified-id="特征的重要性-1.9"><span class="toc-item-num">1.9&nbsp;&nbsp;</span>特征的重要性</a></span><ul class="toc-item"><li><span><a href="#问题-6---观察特征相关性" data-toc-modified-id="问题-6---观察特征相关性-1.9.1"><span class="toc-item-num">1.9.1&nbsp;&nbsp;</span>问题 6 - 观察特征相关性</a></span></li><li><span><a href="#练习---提取特征重要性" data-toc-modified-id="练习---提取特征重要性-1.9.2"><span class="toc-item-num">1.9.2&nbsp;&nbsp;</span>练习 - 提取特征重要性</a></span></li><li><span><a href="#问题-7---提取特征重要性" data-toc-modified-id="问题-7---提取特征重要性-1.9.3"><span class="toc-item-num">1.9.3&nbsp;&nbsp;</span>问题 7 - 提取特征重要性</a></span></li><li><span><a href="#特征选择" data-toc-modified-id="特征选择-1.9.4"><span class="toc-item-num">1.9.4&nbsp;&nbsp;</span>特征选择</a></span></li><li><span><a href="#问题-8---特征选择的影响" data-toc-modified-id="问题-8---特征选择的影响-1.9.5"><span class="toc-item-num">1.9.5&nbsp;&nbsp;</span>问题 8 - 特征选择的影响</a></span></li><li><span><a href="#问题-9---在测试集上测试你的模型" data-toc-modified-id="问题-9---在测试集上测试你的模型-1.9.6"><span class="toc-item-num">1.9.6&nbsp;&nbsp;</span>问题 9 - 在测试集上测试你的模型</a></span></li></ul></li></ul></li></ul></div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>欢迎来到机器学习工程师纳米学位的第二个项目！在此文件中，有些示例代码已经提供给你，但你还需要实现更多的功能让项目成功运行。除非有明确要求，你无须修改任何已给出的代码。以<strong>'练习'</strong>开始的标题表示接下来的代码部分中有你必须要实现的功能。每一部分都会有详细的指导，需要实现的部分也会在注释中以'TODO'标出。请仔细阅读所有的提示！</p>
-<p>除了实现代码外，你还必须回答一些与项目和你的实现有关的问题。每一个需要你回答的问题都会以<strong>'问题 X'</strong>为标题。请仔细阅读每个问题，并且在问题后的<strong>'回答'</strong>文字框中写出完整的答案。我们将根据你对问题的回答和撰写代码所实现的功能来对你提交的项目进行评分。</p>
-<blockquote><p><strong>提示：</strong>Code 和 Markdown 区域可通过<strong>Shift + Enter</strong>快捷键运行。此外，Markdown可以通过双击进入编辑模式。</p>
-</blockquote>
+<h1 id="&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;">&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;<a class="anchor-link" href="#&#26426;&#22120;&#23398;&#20064;&#32435;&#31859;&#23398;&#20301;">&#182;</a></h1><h2 id="&#30417;&#30563;&#23398;&#20064;">&#30417;&#30563;&#23398;&#20064;<a class="anchor-link" href="#&#30417;&#30563;&#23398;&#20064;">&#182;</a></h2><h2 id="&#20026;CharityML&#23547;&#25214;&#25424;&#29486;&#32773;">&#20026;<em>CharityML</em>&#23547;&#25214;&#25424;&#29486;&#32773;<a class="anchor-link" href="#&#20026;CharityML&#23547;&#25214;&#25424;&#29486;&#32773;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#24320;&#22987;">&#24320;&#22987;<a class="anchor-link" href="#&#24320;&#22987;">&#182;</a></h2><p>在这个项目中，我们将使用1994年美国人口普查收集的数据，选用几个监督学习算法以准确地建模被调查者的收入。然后，我们将根据初步结果从中选择出最佳的候选算法，并进一步优化该算法以最好地建模这些数据。我们的目标是建立一个能够准确地预测被调查者年收入是否超过50000美元的模型。这种类型的任务会出现在那些依赖于捐款而存在的非营利性组织。了解人群的收入情况可以帮助一个非营利性的机构更好地了解他们要多大的捐赠，或是否他们应该接触这些人。虽然我们很难直接从公开的资源中推断出一个人的一般收入阶层，但是我们可以（也正是我们将要做的）从其他的一些公开的可获得的资源中获得一些特征从而推断出该值。</p>
+<p>这个项目的数据集来自<a href="https://archive.ics.uci.edu/ml/datasets/Census+Income">UCI机器学习知识库</a>。这个数据集是由Ron Kohavi和Barry Becker在发表文章_"Scaling Up the Accuracy of Naive-Bayes Classifiers: A Decision-Tree Hybrid"_之后捐赠的，我们可以在Ron Kohavi提供的<a href="https://www.aaai.org/Papers/KDD/1996/KDD96-033.pdf">在线版本</a>中找到这个文章。我们在这里探索的数据集相比于原有的数据集有一些小小的改变，比如说移除了特征<code>'fnlwgt'</code> 以及一些遗失的或者是格式不正确的记录。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#24320;&#22987;">&#24320;&#22987;<a class="anchor-link" href="#&#24320;&#22987;">&#182;</a></h2><p>在这个项目中，你将使用1994年美国人口普查收集的数据，选用几个监督学习算法以准确地建模被调查者的收入。然后，你将根据初步结果从中选择出最佳的候选算法，并进一步优化该算法以最好地建模这些数据。你的目标是建立一个能够准确地预测被调查者年收入是否超过50000美元的模型。这种类型的任务会出现在那些依赖于捐款而存在的非营利性组织。了解人群的收入情况可以帮助一个非营利性的机构更好地了解他们要多大的捐赠，或是否他们应该接触这些人。虽然我们很难直接从公开的资源中推断出一个人的一般收入阶层，但是我们可以（也正是我们将要做的）从其他的一些公开的可获得的资源中获得一些特征从而推断出该值。</p>
-<p>这个项目的数据集来自<a href="https://archive.ics.uci.edu/ml/datasets/Census+Income">UCI机器学习知识库</a>。这个数据集是由Ron Kohavi和Barry Becker在发表文章_"Scaling Up the Accuracy of Naive-Bayes Classifiers: A Decision-Tree Hybrid"_之后捐赠的，你可以在Ron Kohavi提供的<a href="https://www.aaai.org/Papers/KDD/1996/KDD96-033.pdf">在线版本</a>中找到这个文章。我们在这里探索的数据集相比于原有的数据集有一些小小的改变，比如说移除了特征<code>'fnlwgt'</code> 以及一些遗失的或者是格式不正确的记录。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="&#25506;&#32034;&#25968;&#25454;">&#25506;&#32034;&#25968;&#25454;<a class="anchor-link" href="#&#25506;&#32034;&#25968;&#25454;">&#182;</a></h2><p>运行下面的代码单元以载入需要的Python库并导入人口普查数据。注意数据集的最后一列<code>'income'</code>将是我们需要预测的列（表示被调查者的年收入会大于或者是最多50,000美元），人口普查数据中的每一列都将是关于被调查者的特征。</p>
@@ -11835,7 +13170,7 @@ div#notebook {
 <span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -11845,7 +13180,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -11914,17 +13249,15 @@ div#notebook {
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;">&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;">&#182;</a></h3><p>首先我们对数据集进行一个粗略的探索，我们将看看每一个类别里会有多少被调查者？并且告诉我们这些里面多大比例是年收入大于50,000美元的。在下面的代码单元中，你将需要计算以下量：</p>
+<h3 id="&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;">&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#25968;&#25454;&#25506;&#32034;">&#182;</a></h3><p>首先我们对数据集进行一个粗略的探索，我们将看看每一个类别里会有多少被调查者？并且告诉我们这些里面多大比例是年收入大于50,000美元的。在下面的代码单元中，我们将需要计算以下量：</p>
 <ul>
 <li>总的记录数量，<code>'n_records'</code></li>
 <li>年收入大于50,000美元的人数，<code>'n_greater_50k'</code>.</li>
 <li>年收入最多为50,000美元的人数 <code>'n_at_most_50k'</code>.</li>
 <li>年收入大于50,000美元的人所占的比例， <code>'greater_percent'</code>.</li>
 </ul>
-<p><strong>提示：</strong> 您可能需要查看上面的生成的表，以了解<code>'income'</code>条目的格式是什么样的。</p>
 
 </div>
 </div>
@@ -11937,7 +13270,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -11947,7 +13280,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -12173,28 +13506,28 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO：总的记录数</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ：总的记录数</span>
 <span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">n_records</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">n_records</span>
 
-<span class="c1"># # TODO：被调查者的收入大于$50,000的人数</span>
+<span class="c1"># ：被调查者的收入大于$50,000的人数</span>
 <span class="n">n_greater_50k</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;&gt;50K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">n_greater_50k</span>
-<span class="c1"># # TODO：被调查者的收入最多为$50,000的人数</span>
+<span class="c1">#  ：被调查者的收入最多为$50,000的人数</span>
 <span class="n">n_at_most_50k</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;&lt;=50K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">n_at_most_50k</span>
-<span class="c1"># # TODO：被调查者收入大于$50,000所占的比例</span>
+<span class="c1">#  ：被调查者收入大于$50,000所占的比例</span>
 <span class="n">greater_percent</span> <span class="o">=</span> <span class="n">n_greater_50k</span><span class="o">/</span><span class="n">n_records</span><span class="o">*</span><span class="mi">100</span>
 
-<span class="c1"># # 打印结果</span>
+<span class="c1">#  打印结果</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total number of records: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_records</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Individuals making more than $50,000: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Individuals making at most $50,000: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_at_most_50k</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Percentage of individuals making more than $50,000: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">greater_percent</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12204,7 +13537,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -12233,7 +13566,7 @@ memory usage: 4.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -12246,7 +13579,7 @@ memory usage: 4.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -12259,7 +13592,7 @@ memory usage: 4.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -12272,7 +13605,7 @@ memory usage: 4.8+ MB
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -12289,8 +13622,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="&#20934;&#22791;&#25968;&#25454;">&#20934;&#22791;&#25968;&#25454;<a class="anchor-link" href="#&#20934;&#22791;&#25968;&#25454;">&#182;</a></h2><p>在数据能够被作为输入提供给机器学习算法之前，它经常需要被清洗，格式化，和重新组织 - 这通常被叫做<strong>预处理</strong>。幸运的是，对于这个数据集，没有我们必须处理的无效或丢失的条目，然而，由于某一些特征存在的特性我们必须进行一定的调整。这个预处理都可以极大地帮助我们提升几乎所有的学习算法的结果和预测能力。</p>
@@ -12309,17 +13641,16 @@ Percentage of individuals making more than $50,000: 24.78%
 <span class="n">features_raw</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#36716;&#25442;&#20542;&#26012;&#30340;&#36830;&#32493;&#29305;&#24449;">&#36716;&#25442;&#20542;&#26012;&#30340;&#36830;&#32493;&#29305;&#24449;<a class="anchor-link" href="#&#36716;&#25442;&#20542;&#26012;&#30340;&#36830;&#32493;&#29305;&#24449;">&#182;</a></h3><p>一个数据集有时可能包含至少一个靠近某个数字的特征，但有时也会有一些相对来说存在极大值或者极小值的不平凡分布的的特征。算法对这种分布的数据会十分敏感，并且如果这种数据没有能够很好地规一化处理会使得算法表现不佳。在人口普查数据集的两个特征符合这个描述：'<code>capital-gain'</code>和<code>'capital-loss'</code>。</p>
-<p>运行下面的代码单元以创建一个关于这两个特征的条形图。请注意当前的值的范围和它们是如何分布的。</p>
+<p>以下视图，注意当前的值的范围和它们是如何分布的。</p>
 
 </div>
 </div>
@@ -12333,7 +13664,7 @@ Percentage of individuals making more than $50,000: 24.78%
 <span class="n">vs</span><span class="o">.</span><span class="n">distribution</span><span class="p">(</span><span class="n">features_raw</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12343,7 +13674,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -12361,8 +13692,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>对于高度倾斜分布的特征如<code>'capital-gain'</code>和<code>'capital-loss'</code>，常见的做法是对数据施加一个<a href="https://en.wikipedia.org/wiki/Data_transformation_(statistics)">对数转换</a>，将数据转换成对数，这样非常大和非常小的值不会对学习算法产生负面的影响。并且使用对数变换显著降低了由于异常值所造成的数据范围异常。但是在应用这个变换时必须小心：因为0的对数是没有定义的，所以我们必须先将数据处理成一个比0稍微大一点的数以成功完成对数转换。</p>
 <p>运行下面的代码单元来执行数据的转换和可视化结果。再次，注意值的范围和它们是如何分布的。</p>
@@ -12383,7 +13713,7 @@ Percentage of individuals making more than $50,000: 24.78%
 <span class="n">vs</span><span class="o">.</span><span class="n">distribution</span><span class="p">(</span><span class="n">features_raw</span><span class="p">,</span> <span class="n">transformed</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12393,7 +13723,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -12411,8 +13741,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#35268;&#19968;&#21270;&#25968;&#23383;&#29305;&#24449;">&#35268;&#19968;&#21270;&#25968;&#23383;&#29305;&#24449;<a class="anchor-link" href="#&#35268;&#19968;&#21270;&#25968;&#23383;&#29305;&#24449;">&#182;</a></h3><p>除了对于高度倾斜的特征施加转换，对数值特征施加一些形式的缩放通常会是一个好的习惯。在数据上面施加一个缩放并不会改变数据分布的形式（比如上面说的'capital-gain' or 'capital-loss'）；但是，规一化保证了每一个特征在使用监督学习器的时候能够被平等的对待。注意一旦使用了缩放，观察数据的原始形式不再具有它本来的意义了，就像下面的例子展示的。</p>
 <p>运行下面的代码单元来规一化每一个数字特征。我们将使用<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html"><code>sklearn.preprocessing.MinMaxScaler</code></a>来完成这个任务。</p>
@@ -12436,7 +13765,7 @@ Percentage of individuals making more than $50,000: 24.78%
 <span class="n">display</span><span class="p">(</span><span class="n">features_raw</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12446,7 +13775,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -12513,8 +13842,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#32451;&#20064;&#65306;&#25968;&#25454;&#39044;&#22788;&#29702;">&#32451;&#20064;&#65306;&#25968;&#25454;&#39044;&#22788;&#29702;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#25968;&#25454;&#39044;&#22788;&#29702;">&#182;</a></h3><p>从上面的<strong>数据探索</strong>中的表中，我们可以看到有几个属性的每一条记录都是非数字的。通常情况下，学习算法期望输入是数字的，这要求非数字的特征（称为类别变量）被转换。转换类别变量的一种流行的方法是使用<strong>独热编码</strong>方案。独热编码为每一个非数字特征的每一个可能的类别创建一个_“虚拟”_变量。例如，假设<code>someFeature</code>有三个可能的取值<code>A</code>，<code>B</code>或者<code>C</code>，。我们将把这个特征编码成<code>someFeature_A</code>, <code>someFeature_B</code>和<code>someFeature_C</code>.</p>
 <table>
@@ -12581,7 +13909,7 @@ Percentage of individuals making more than $50,000: 24.78%
 <span class="nb">print</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12591,7 +13919,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -12613,7 +13941,7 @@ Percentage of individuals making more than $50,000: 24.78%
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">income</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12623,7 +13951,7 @@ Percentage of individuals making more than $50,000: 24.78%
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -12649,8 +13977,7 @@ Name: income, dtype: int64</pre>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#28151;&#27927;&#21644;&#20999;&#20998;&#25968;&#25454;">&#28151;&#27927;&#21644;&#20999;&#20998;&#25968;&#25454;<a class="anchor-link" href="#&#28151;&#27927;&#21644;&#20999;&#20998;&#25968;&#25454;">&#182;</a></h3><p>现在所有的 <em>类别变量</em> 已被转换成数值特征，而且所有的数值特征已被规一化。和我们一般情况下做的一样，我们现在将数据（包括特征和它们的标签）切分成训练和测试集。其中80%的数据将用于训练和20%的数据用于测试。然后再进一步把训练数据分为训练集和验证集，用来选择和优化模型。</p>
 <p>运行下面的代码单元来完成切分。</p>
@@ -12679,7 +14006,7 @@ Name: income, dtype: int64</pre>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Testing set has </span><span class="si">{}</span><span class="s2"> samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12689,7 +14016,7 @@ Name: income, dtype: int64</pre>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -12705,8 +14032,7 @@ Testing set has 9045 samples.
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="&#35780;&#20215;&#27169;&#22411;&#24615;&#33021;">&#35780;&#20215;&#27169;&#22411;&#24615;&#33021;<a class="anchor-link" href="#&#35780;&#20215;&#27169;&#22411;&#24615;&#33021;">&#182;</a></h2><p>在这一部分中，我们将尝试四种不同的算法，并确定哪一个能够最好地建模数据。四种算法包含一个<em>天真的预测器</em> 和三个你选择的监督学习器。</p>
@@ -12715,19 +14041,16 @@ Testing set has 9045 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#35780;&#20215;&#26041;&#27861;&#21644;&#26420;&#32032;&#30340;&#39044;&#27979;&#22120;">&#35780;&#20215;&#26041;&#27861;&#21644;&#26420;&#32032;&#30340;&#39044;&#27979;&#22120;<a class="anchor-link" href="#&#35780;&#20215;&#26041;&#27861;&#21644;&#26420;&#32032;&#30340;&#39044;&#27979;&#22120;">&#182;</a></h3><p><em>CharityML</em>通过他们的研究人员知道被调查者的年收入大于\$50,000最有可能向他们捐款。因为这个原因*CharityML*对于准确预测谁能够获得\$50,000以上收入尤其有兴趣。这样看起来使用<strong>准确率</strong>作为评价模型的标准是合适的。另外，把<em>没有</em>收入大于\$50,000的人识别成年收入大于\$50,000对于<em>CharityML</em>来说是有害的，因为他想要找到的是有意愿捐款的用户。这样，我们期望的模型具有准确预测那些能够年收入大于\$50,000的能力比模型去<strong>查全</strong>这些被调查者<em>更重要</em>。我们能够使用<strong>F-beta score</strong>作为评价指标，这样能够同时考虑查准率和查全率：</p>
-<p>$$ F_{\beta} = (1 + \beta^2) \cdot \frac{precision \cdot recall}{\left( \beta^2 \cdot precision \right) + recall} $$</p>
-<p>尤其是，当 $\beta = 0.5$ 的时候更多的强调查准率，这叫做<strong>F$_{0.5}$ score</strong> （或者为了简单叫做F-score）。</p>
+$$ F_{\beta} = (1 + \beta^2) \cdot \frac{precision \cdot recall}{\left( \beta^2 \cdot precision \right) + recall} $$<p>尤其是，当 $\beta = 0.5$ 的时候更多的强调查准率，这叫做<strong>F$_{0.5}$ score</strong> （或者为了简单叫做F-score）。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-1---&#22825;&#30495;&#30340;&#39044;&#27979;&#22120;&#30340;&#24615;&#33021;">&#38382;&#39064; 1 - &#22825;&#30495;&#30340;&#39044;&#27979;&#22120;&#30340;&#24615;&#33021;<a class="anchor-link" href="#&#38382;&#39064;-1---&#22825;&#30495;&#30340;&#39044;&#27979;&#22120;&#30340;&#24615;&#33021;">&#182;</a></h3><p>通过查看收入超过和不超过 \$50,000 的人数，我们能发现多数被调查者年收入没有超过 \$50,000。如果我们简单地预测说<em>“这个人的收入没有超过 \$50,000”</em>，我们就可以得到一个 准确率超过 50% 的预测。这样我们甚至不用看数据就能做到一个准确率超过 50%。这样一个预测被称作是天真的。通常对数据使用一个<em>天真的预测器</em>是十分重要的，这样能够帮助建立一个模型表现是否好的基准。 使用下面的代码单元计算天真的预测器的相关性能。将你的计算结果赋值给<code>'accuracy'</code>, <code>‘precision’</code>, <code>‘recall’</code> 和 <code>'fscore'</code>，这些值会在后面被使用，请注意这里不能使用scikit-learn，你需要根据公式自己实现相关计算。</p>
 <p><em>如果我们选择一个无论什么情况都预测被调查者年收入大于 \$50,000 的模型，那么这个模型在<strong>验证集上</strong>的准确率，查准率，查全率和 F-score是多少？</em></p>
@@ -12770,7 +14093,7 @@ Testing set has 9045 samples.
 <span class="s2">    F-score: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">fscore</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -12780,7 +14103,7 @@ Testing set has 9045 samples.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -12873,7 +14196,7 @@ Testing set has 9045 samples.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -12886,7 +14209,7 @@ Testing set has 9045 samples.
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -12911,14 +14234,13 @@ Testing set has 9045 samples.
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_val</span><span class="o">=</span><span class="n">y_val</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;predict&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#30417;&#30563;&#23398;&#20064;&#27169;&#22411;">&#30417;&#30563;&#23398;&#20064;&#27169;&#22411;<a class="anchor-link" href="#&#30417;&#30563;&#23398;&#20064;&#27169;&#22411;">&#182;</a></h2><h3 id="&#38382;&#39064;-2---&#27169;&#22411;&#24212;&#29992;">&#38382;&#39064; 2 - &#27169;&#22411;&#24212;&#29992;<a class="anchor-link" href="#&#38382;&#39064;-2---&#27169;&#22411;&#24212;&#29992;">&#182;</a></h3><p>你能够在 <a href="http://scikit-learn.org/stable/supervised_learning.html"><code>scikit-learn</code></a> 中选择以下监督学习模型</p>
 <ul>
@@ -12936,12 +14258,11 @@ Testing set has 9045 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#27169;&#22411;1">&#27169;&#22411;1<a class="anchor-link" href="#&#27169;&#22411;1">&#182;</a></h3><p><strong>模型名称</strong></p>
 <p>回答：随机梯度下降分类器 (SGDC)</p>
-<p><strong>描述一个该模型在真实世界的一个应用场景。（你需要为此做点研究，并给出你的引用出处）</strong></p>
+<p><strong>描述一个该模型在真实世界的一个应用场景。</strong></p>
 <p>回答：随机梯度下降法已成功应用于在文本分类和自然语言处理中经常遇到的大规模和稀疏的机器学习问题。 对于稀疏数据，本模块的分类器可以轻易的处理超过 10^5 的训练样本和超过 10^5 的特征。</p>
 <p>引用：</p>
 <p><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">https://en.wikipedia.org/wiki/Stochastic_gradient_descent</a>
@@ -12969,12 +14290,11 @@ Testing set has 9045 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#27169;&#22411;2">&#27169;&#22411;2<a class="anchor-link" href="#&#27169;&#22411;2">&#182;</a></h3><p><strong>模型名称</strong></p>
 <p>回答：支撑向量机 (SVM)</p>
-<p><strong>描述一个该模型在真实世界的一个应用场景。（你需要为此做点研究，并给出你的引用出处）</strong></p>
+<p><strong>描述一个该模型在真实世界的一个应用场景。</strong></p>
 <p>用于文本和超文本的分类，在归纳和直推方法中都可以显著减少所需要的有类标的样本数。
 用于图像分类。实验结果显示：在经过三到四轮相关反馈之后，比起传统的查询优化方案，支持向量机能够获取明显更高的搜索准确度。这同样也适用于图像分割系统，比如使用Vapnik所建议的使用特权方法的修改版本SVM的那些图像分割系统。
 用于手写字体识别。
@@ -13003,12 +14323,11 @@ Testing set has 9045 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#27169;&#22411;3">&#27169;&#22411;3<a class="anchor-link" href="#&#27169;&#22411;3">&#182;</a></h3><p><strong>模型名称</strong></p>
 <p>回答：Gradient Boosting</p>
-<p><strong>描述一个该模型在真实世界的一个应用场景。（你需要为此做点研究，并给出你的引用出处）</strong></p>
+<p><strong>描述一个该模型在真实世界的一个应用场景。</strong></p>
 <p>回答：集成学习是机器学习算法中地位非常重要的一类算法, 其拥有理论基础扎实、易扩展、可解释性强等特点, 其核心思想是, 使用弱学习器(如线性模型、决策树等)进行加权求和, 从而产生性能较为强大的强学习器. 若按照指导弱学习器进行学习的理论基础进行分类的话, 集成学习的算法可分为两大类: 1. 基于偏差方差分解和bagging(bootstrap aggregating, 有放回抽样与集成)进行弱学习器学习的算法, 其典型代表是RF(Random Forest, 随机森林); 2. 基于梯度下降和boosting (提升)使弱学习器对前序产生的模型的不足之处进行改进, 以达到提升强学习器能力的效果, 其典型代表是AdaBoost(Adaptive Boosting, 自适应提升), GBDT(Gradient Boosting Decision Tree, 梯度提升决策树).</p>
 <p>梯度提升可以用于学习排名。商业网络搜索引擎Yahoo和Yandex在其机器学习的排名引擎中使用了梯度提升算法的优化方法。
 引用：
@@ -13039,8 +14358,7 @@ Testing set has 9045 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#32451;&#20064;---&#21019;&#24314;&#19968;&#20010;&#35757;&#32451;&#21644;&#39044;&#27979;&#30340;&#27969;&#27700;&#32447;">&#32451;&#20064; - &#21019;&#24314;&#19968;&#20010;&#35757;&#32451;&#21644;&#39044;&#27979;&#30340;&#27969;&#27700;&#32447;<a class="anchor-link" href="#&#32451;&#20064;---&#21019;&#24314;&#19968;&#20010;&#35757;&#32451;&#21644;&#39044;&#27979;&#30340;&#27969;&#27700;&#32447;">&#182;</a></h3><p>为了正确评估你选择的每一个模型的性能，创建一个能够帮助你快速有效地使用不同大小的训练集并在验证集上做预测的训练和验证的流水线是十分重要的。
 你在这里实现的功能将会在接下来的部分中被用到。在下面的代码单元中，你将实现以下功能：</p>
@@ -13060,7 +14378,7 @@ Testing set has 9045 samples.
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO：从sklearn中导入两个评价指标 - fbeta_score和accuracy_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 从sklearn中导入两个评价指标 - fbeta_score和accuracy_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">fbeta_score</span><span class="p">,</span> <span class="n">accuracy_score</span>
 
 <span class="k">def</span> <span class="nf">train_predict</span><span class="p">(</span><span class="n">learner</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">):</span> 
@@ -13076,35 +14394,35 @@ Testing set has 9045 samples.
     
     <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
     
-    <span class="c1"># TODO：使用sample_size大小的训练数据来拟合学习器</span>
-    <span class="c1"># TODO: Fit the learner to the training data using slicing with &#39;sample_size&#39;</span>
+    <span class="c1"># 使用sample_size大小的训练数据来拟合学习器</span>
+    <span class="c1">#  Fit the learner to the training data using slicing with &#39;sample_size&#39;</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># 获得程序开始时间</span>
     <span class="n">learner</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">],</span><span class="n">y_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">])</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># 获得程序结束时间</span>
     
-    <span class="c1"># TODO：计算训练时间</span>
+    <span class="c1"># 计算训练时间</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;train_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
     
-    <span class="c1"># TODO: 得到在验证集上的预测值</span>
+    <span class="c1"># 得到在验证集上的预测值</span>
     <span class="c1">#       然后得到对前300个训练数据的预测结果</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># 获得程序开始时间</span>
     <span class="n">predictions_val</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
     <span class="n">predictions_train</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># 获得程序结束时间</span>
     
-    <span class="c1"># TODO：计算预测用时</span>
+    <span class="c1"># 计算预测用时</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;pred_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
             
-    <span class="c1"># TODO：计算在最前面的300个训练数据的准确率</span>
+    <span class="c1"># 计算在最前面的300个训练数据的准确率</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">],</span><span class="n">predictions_train</span><span class="p">)</span>
         
-    <span class="c1"># TODO：计算在验证上的准确率</span>
+    <span class="c1"># 计算在验证上的准确率</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_val&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="n">predictions_val</span><span class="p">)</span>
     
-    <span class="c1"># TODO：计算在最前面300个训练数据上的F-score</span>
+    <span class="c1"># 计算在最前面300个训练数据上的F-score</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">],</span><span class="n">predictions_train</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
         
-    <span class="c1"># TODO：计算验证集上的F-score</span>
+    <span class="c1"># 计算验证集上的F-score</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_val&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="n">predictions_val</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
        
     <span class="c1"># 成功</span>
@@ -13114,14 +14432,13 @@ Testing set has 9045 samples.
     <span class="k">return</span> <span class="n">results</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#32451;&#20064;&#65306;&#21021;&#22987;&#27169;&#22411;&#30340;&#35780;&#20272;">&#32451;&#20064;&#65306;&#21021;&#22987;&#27169;&#22411;&#30340;&#35780;&#20272;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#21021;&#22987;&#27169;&#22411;&#30340;&#35780;&#20272;">&#182;</a></h3><p>在下面的代码单元中，您将需要实现以下功能：</p>
 <ul>
@@ -13143,16 +14460,16 @@ Testing set has 9045 samples.
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO：从sklearn中导入三个监督学习模型</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ：从sklearn中导入三个监督学习模型</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">GradientBoostingClassifier</span>
-<span class="c1"># TODO：初始化三个模型</span>
+<span class="c1"># ：初始化三个模型</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">272</span><span class="p">)</span>
 <span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">272</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">272</span><span class="p">)</span>
 
-<span class="c1"># TODO：计算1%， 10%， 100%的训练数据分别对应多少点</span>
+<span class="c1"># ：计算1%， 10%， 100%的训练数据分别对应多少点</span>
 <span class="n">samples_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.01</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
 <span class="n">samples_10</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
 <span class="n">samples_100</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
@@ -13169,7 +14486,7 @@ Testing set has 9045 samples.
 <span class="n">vs</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">fscore</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13179,7 +14496,7 @@ Testing set has 9045 samples.
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13192,7 +14509,7 @@ SGDClassifier trained on 28941 samples.
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -13206,7 +14523,7 @@ D:\learning\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedM
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13217,7 +14534,7 @@ D:\learning\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedM
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -13229,7 +14546,7 @@ D:\learning\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedM
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13240,7 +14557,7 @@ D:\learning\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedM
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -13252,7 +14569,7 @@ D:\learning\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedM
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13266,7 +14583,7 @@ GradientBoostingClassifier trained on 28941 samples.
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -13284,18 +14601,16 @@ GradientBoostingClassifier trained on 28941 samples.
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="&#25552;&#39640;&#25928;&#26524;">&#25552;&#39640;&#25928;&#26524;<a class="anchor-link" href="#&#25552;&#39640;&#25928;&#26524;">&#182;</a></h2><p>在这最后一节中，您将从三个有监督的学习模型中选择 <em>最好的</em> 模型来使用学生数据。你将在整个训练集（<code>X_train</code>和<code>y_train</code>）上使用网格搜索优化至少调节一个参数以获得一个比没有调节之前更好的 F-score。</p>
+<h2 id="&#25552;&#39640;&#25928;&#26524;">&#25552;&#39640;&#25928;&#26524;<a class="anchor-link" href="#&#25552;&#39640;&#25928;&#26524;">&#182;</a></h2><p>在这最后一节中，我将从三个有监督的学习模型中选择 <em>最好的</em> 模型来使用学生数据。你将在整个训练集（<code>X_train</code>和<code>y_train</code>）上使用网格搜索优化至少调节一个参数以获得一个比没有调节之前更好的 F-score。</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-3---&#36873;&#25321;&#26368;&#20339;&#30340;&#27169;&#22411;">&#38382;&#39064; 3 - &#36873;&#25321;&#26368;&#20339;&#30340;&#27169;&#22411;<a class="anchor-link" href="#&#38382;&#39064;-3---&#36873;&#25321;&#26368;&#20339;&#30340;&#27169;&#22411;">&#182;</a></h3><p><em>基于你前面做的评价，用一到两段话向 </em>CharityML<em> 解释这三个模型中哪一个对于判断被调查者的年收入大于 \$50,000 是最合适的。</em><br>
 <strong>提示：</strong>你的答案应该包括评价指标，预测/训练时间，以及该算法是否适合这里的数据。</p>
@@ -13304,8 +14619,7 @@ GradientBoostingClassifier trained on 28941 samples.
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong>
 GradientBoostingClassifier的训练时间不是最快的，但是可以接受，最重要的是精度和F-score都是最高的。SVM训练时间较长，SGDC训练得分稍微低一些，但是表现也不错。本数据规模居中，大约4万多行，特征不算太多，没有缺失值，但是具有一定的相关性，特征包含数值变量、分类变量等。比较适合BOOSTING算法。</p>
@@ -13314,8 +14628,7 @@ GradientBoostingClassifier的训练时间不是最快的，但是可以接受，
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-4---&#29992;&#36890;&#20439;&#30340;&#35805;&#35299;&#37322;&#27169;&#22411;">&#38382;&#39064; 4 - &#29992;&#36890;&#20439;&#30340;&#35805;&#35299;&#37322;&#27169;&#22411;<a class="anchor-link" href="#&#38382;&#39064;-4---&#29992;&#36890;&#20439;&#30340;&#35805;&#35299;&#37322;&#27169;&#22411;">&#182;</a></h3><p><em>用一到两段话，向 </em>CharityML<em> 用外行也听得懂的话来解释最终模型是如何工作的。你需要解释所选模型的主要特点。例如，这个模型是怎样被训练的，它又是如何做出预测的。避免使用高级的数学或技术术语，不要使用公式或特定的算法名词。</em></p>
 
@@ -13323,8 +14636,7 @@ GradientBoostingClassifier的训练时间不是最快的，但是可以接受，
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答： </strong> 
 梯度提升分类器通过组合几个简单的学习者（此处为决策树）来工作，以创建可以预测某人的年收入是否超过50k的学习者整体。每个学习者都是根据个人的“特征”（例如种族，性别，教育程度等）创建的，并创建了一组可以预测一个人的收入的规则。
@@ -13334,26 +14646,24 @@ GradientBoostingClassifier的训练时间不是最快的，但是可以接受，
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;">&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;">&#182;</a></h3><p>调节选择的模型的参数。使用网格搜索（GridSearchCV）来至少调整模型的重要参数（至少调整一个），这个参数至少需尝试3个不同的值。你要使用整个训练集来完成这个过程。在接下来的代码单元中，你需要实现以下功能：</p>
+<h3 id="&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;">&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#27169;&#22411;&#35843;&#20248;">&#182;</a></h3><p>调节选择的模型的参数。使用网格搜索（GridSearchCV）来至少调整模型的重要参数（至少调整一个），这个参数至少需尝试3个不同的值。我将使用整个训练集来完成这个过程。在接下来的代码单元中，我会实现以下功能：</p>
 <ul>
 <li>导入<a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html"><code>sklearn.model_selection.GridSearchCV</code></a> 和 <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html"><code>sklearn.metrics.make_scorer</code></a>.</li>
-<li>初始化你选择的分类器，并将其存储在<code>clf</code>中。<ul>
+<li>初始化选择的分类器，并将其存储在<code>clf</code>中。<ul>
 <li>设置<code>random_state</code> (如果有这个参数)。</li>
 </ul>
 </li>
-<li>创建一个对于这个模型你希望调整参数的字典。<ul>
+<li>创建一个对于这个模型希望调整参数的字典。<ul>
 <li>例如: parameters = {'parameter' : [list of values]}。</li>
-<li><strong>注意：</strong> 如果你的学习器有 <code>max_features</code> 参数，请不要调节它！</li>
+<li><strong>注意：</strong> 如果学习器有 <code>max_features</code> 参数，请不要调节它！</li>
 </ul>
 </li>
 <li>使用<code>make_scorer</code>来创建一个<code>fbeta_score</code>评分对象（设置$\beta = 0.5$）。</li>
 <li>在分类器clf上用'scorer'作为评价函数运行网格搜索，并将结果存储在grid_obj中。</li>
 <li>用训练集（X_train, y_train）训练grid search object,并将结果存储在<code>grid_fit</code>中。</li>
 </ul>
-<p><strong>注意：</strong> 取决于你选择的参数列表，下面实现的代码可能需要花一些时间运行！</p>
 
 </div>
 </div>
@@ -13405,7 +14715,7 @@ GradientBoostingClassifier的训练时间不是最快的，但是可以接受，
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Final F-score on the validation data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">best_predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13415,7 +14725,7 @@ GradientBoostingClassifier的训练时间不是最快的，但是可以接受，
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13450,8 +14760,7 @@ Final F-score on the validation data: 0.7611
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>以下是尝试随机搜索，与网格搜索结果所用时间及结果对比，发现增加参数后时间还缩短了很多，精度跟以上差不多（由于本次尝试的参数选项不多，两个搜索得出的最优模型参数是一样的）。以后调节参数较多时可以优先使用随机搜索。</strong></p>
 
@@ -13497,7 +14806,7 @@ Final F-score on the validation data: 0.7611
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Final F-score on the validation data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">best_predictions_r</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13507,7 +14816,7 @@ Final F-score on the validation data: 0.7611
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -13519,7 +14828,7 @@ Final F-score on the validation data: 0.7611
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13554,18 +14863,15 @@ Final F-score on the validation data: 0.7611
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#38382;&#39064;-5---&#26368;&#32456;&#27169;&#22411;&#35780;&#20272;">&#38382;&#39064; 5 - &#26368;&#32456;&#27169;&#22411;&#35780;&#20272;<a class="anchor-link" href="#&#38382;&#39064;-5---&#26368;&#32456;&#27169;&#22411;&#35780;&#20272;">&#182;</a></h3><p><em>你的最优模型在测试数据上的准确率和 F-score 是多少？这些分数比没有优化的模型好还是差？</em>
-<strong>注意：</strong>请在下面的表格中填写你的结果，然后在答案框中提供讨论。</p>
+<h3 id="&#38382;&#39064;-5---&#26368;&#32456;&#27169;&#22411;&#35780;&#20272;">&#38382;&#39064; 5 - &#26368;&#32456;&#27169;&#22411;&#35780;&#20272;<a class="anchor-link" href="#&#38382;&#39064;-5---&#26368;&#32456;&#27169;&#22411;&#35780;&#20272;">&#182;</a></h3><p><em>你的最优模型在测试数据上的准确率和 F-score 是多少？这些分数比没有优化的模型好还是差？</em></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="&#32467;&#26524;:">&#32467;&#26524;:<a class="anchor-link" href="#&#32467;&#26524;:">&#182;</a></h4><table>
 <thead><tr>
@@ -13592,8 +14898,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong>优化的模型跟未优化的模型比，分数没有显著性的提高，但是考虑到里面的参数对过拟合有一定的调节作用，所以还是使用优化的模型。</p>
 
@@ -13601,8 +14906,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="&#29305;&#24449;&#30340;&#37325;&#35201;&#24615;">&#29305;&#24449;&#30340;&#37325;&#35201;&#24615;<a class="anchor-link" href="#&#29305;&#24449;&#30340;&#37325;&#35201;&#24615;">&#182;</a></h2><p>在数据上（比如我们这里使用的人口普查的数据）使用监督学习算法的一个重要的任务是决定哪些特征能够提供最强的预测能力。专注于少量的有效特征和标签之间的关系，我们能够更加简单地理解这些现象，这在很多情况下都是十分有用的。在这个项目的情境下这表示我们希望选择一小部分特征，这些特征能够在预测被调查者是否年收入大于\$50,000这个问题上有很强的预测能力。</p>
@@ -13612,8 +14916,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-6---&#35266;&#23519;&#29305;&#24449;&#30456;&#20851;&#24615;">&#38382;&#39064; 6 - &#35266;&#23519;&#29305;&#24449;&#30456;&#20851;&#24615;<a class="anchor-link" href="#&#38382;&#39064;-6---&#35266;&#23519;&#29305;&#24449;&#30456;&#20851;&#24615;">&#182;</a></h3><p>当<strong>探索数据</strong>的时候，它显示在这个人口普查数据集中每一条记录我们有十三个可用的特征。<br>
 <em>在这十三个记录中，你认为哪五个特征对于预测是最重要的，选择每个特征的理由是什么？你会怎样对他们排序？</em></p>
@@ -13622,8 +14925,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
 <ul>
@@ -13638,11 +14940,10 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#32451;&#20064;---&#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;">&#32451;&#20064; - &#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;<a class="anchor-link" href="#&#32451;&#20064;---&#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;">&#182;</a></h3><p>选择一个<code>scikit-learn</code>中有<code>feature_importance_</code>属性的监督学习分类器，这个属性是一个在做预测的时候根据所选择的算法来对特征重要性进行排序的功能。</p>
-<p>在下面的代码单元中，你将要实现以下功能：</p>
+<p>在下面的代码单元中，我将要实现以下功能：</p>
 <ul>
 <li>如果这个模型和你前面使用的三个模型不一样的话从sklearn中导入一个监督学习模型。</li>
 <li>在整个训练集上训练一个监督学习模型。</li>
@@ -13669,7 +14970,7 @@ Final F-score on the validation data: 0.7611
 <span class="n">vs</span><span class="o">.</span><span class="n">feature_plot</span><span class="p">(</span><span class="n">importances</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13679,7 +14980,7 @@ Final F-score on the validation data: 0.7611
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -13697,8 +14998,7 @@ Final F-score on the validation data: 0.7611
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-7---&#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;">&#38382;&#39064; 7 - &#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;<a class="anchor-link" href="#&#38382;&#39064;-7---&#25552;&#21462;&#29305;&#24449;&#37325;&#35201;&#24615;">&#182;</a></h3><p>观察上面创建的展示五个用于预测被调查者年收入是否大于\$50,000最相关的特征的可视化图像。</p>
 <p><em>这五个特征的权重加起来是否超过了0.5?</em><br>
@@ -13710,8 +15010,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong>
 超过了0.5，跟我考虑的有一定出入。相同的是都把资本收益放在重要位置，但是模型预测结果现实资本亏损是最重要的，而不是资本收益。说明在实际生活中，资本亏损这个指标对预测结果的影响最大。预测结果年龄也是非常重要的特征，佐证了我的猜测。另外出乎意料的是，模型把工作时间纳入了排名第四的特征，本来我的理解是，收入高低跟工作时间没有相关性的，可能美国的国情不同。也有可能模型预测的不准确，可以采用其他方式再进行详细探索验证。</p>
@@ -13720,8 +15019,7 @@ Final F-score on the validation data: 0.7611
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#29305;&#24449;&#36873;&#25321;">&#29305;&#24449;&#36873;&#25321;<a class="anchor-link" href="#&#29305;&#24449;&#36873;&#25321;">&#182;</a></h3><p>如果我们只是用可用特征的一个子集的话模型表现会怎么样？通过使用更少的特征来训练，在评价指标的角度来看我们的期望是训练和预测的时间会更少。从上面的可视化来看，我们可以看到前五个最重要的特征贡献了数据中<strong>所有</strong>特征中超过一半的重要性。这提示我们可以尝试去<strong>减小特征空间</strong>，简化模型需要学习的信息。下面代码单元将使用你前面发现的优化模型，并<strong>只使用五个最重要的特征</strong>在相同的训练集上训练模型。</p>
 
@@ -13755,7 +15053,7 @@ Final F-score on the validation data: 0.7611
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;F-score on validation data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">reduced_predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13765,7 +15063,7 @@ Final F-score on the validation data: 0.7611
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13787,8 +15085,7 @@ F-score on validation data: 0.7207
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-8---&#29305;&#24449;&#36873;&#25321;&#30340;&#24433;&#21709;">&#38382;&#39064; 8 - &#29305;&#24449;&#36873;&#25321;&#30340;&#24433;&#21709;<a class="anchor-link" href="#&#38382;&#39064;-8---&#29305;&#24449;&#36873;&#25321;&#30340;&#24433;&#21709;">&#182;</a></h3><p><em>最终模型在只是用五个特征的数据上和使用所有的特征数据上的 F-score 和准确率相比怎么样？</em><br>
 <em>如果训练时间是一个要考虑的因素，你会考虑使用部分特征的数据作为你的训练集吗？</em></p>
@@ -13797,8 +15094,7 @@ F-score on validation data: 0.7207
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong>
 特征缩减后的F-score得分下降了4个百分点，从0.76到0.72，准确率变化较小降低了约3个百分点。
@@ -13808,8 +15104,7 @@ F-score on validation data: 0.7207
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-9---&#22312;&#27979;&#35797;&#38598;&#19978;&#27979;&#35797;&#20320;&#30340;&#27169;&#22411;">&#38382;&#39064; 9 - &#22312;&#27979;&#35797;&#38598;&#19978;&#27979;&#35797;&#20320;&#30340;&#27169;&#22411;<a class="anchor-link" href="#&#38382;&#39064;-9---&#22312;&#27979;&#35797;&#38598;&#19978;&#27979;&#35797;&#20320;&#30340;&#27169;&#22411;">&#182;</a></h3><p>终于到了测试的时候，记住，测试集只能用一次。</p>
 <p><em>使用你最有信心的模型，在测试集上测试，计算出准确率和 F-score。</em>
@@ -13830,7 +15125,7 @@ F-score on validation data: 0.7207
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;F-score on test data: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">best_predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13840,7 +15135,7 @@ F-score on validation data: 0.7207
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13858,20 +15153,9 @@ F-score on test data: 0.7562
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>通过网格化搜索确认了该模型的表现不错，而且参数对过拟合有了一定的调节作用，通过测试结果可以看到，该模型在最终测试的表现也不错，准确度达到0.8699，F-score达到0.7562,都是很不错的结果。说明该模型的泛化能力不错。而且无论是准确度还是F1得分都表现很好。</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p><strong>注意：</strong> 当你写完了所有的代码，并且回答了所有的问题。你就可以把你的 iPython Notebook 导出成 HTML 文件。你可以在菜单栏，这样导出<strong>File -&gt; Download as -&gt; HTML (.html)</strong>把这个 HTML 和这个 iPython notebook 一起做为你的作业提交。</p>
-</blockquote>
 
 </div>
 </div>

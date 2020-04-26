@@ -10,25 +10,6 @@
 - [scikit-learn](http://scikit-learn.org/stable/)
 - [matplotlib](http://matplotlib.org/)
 
-你同样需要安装好相应软件使之能够运行 [iPython Notebook](http://ipython.org/notebook.html)
-
-优达学城推荐学生安装[Anaconda](https://www.continuum.io/downloads), 这是一个已经打包好的python发行版，它包含了我们这个项目需要的所有的库和软件。
-
-### 代码
-
-初始代码包含在`finding_donors.ipynb`这个notebook文件中。你还会用到`visuals.py`和名为`census.csv`的数据文件来完成这个项目。我们已经为你提供了一部分代码，但还有些功能需要你来实现才能以完成这个项目。
-这里面有一些代码已经实现好来帮助你开始项目，但是为了完成项目，你还需要实现附加的功能。  
-注意包含在`visuals.py`中的代码设计成一个外部导入的功能，而不是打算学生去修改。如果你对notebook中创建的可视化感兴趣，你也可以去查看这些代码。
-
-
-### 运行
-在命令行中，确保当前目录为 `finding_donors/` 文件夹的最顶层（目录包含本 README 文件），运行下列命令：
-
-```bash
-jupyter notebook finding_donors.ipynb
-```
-
-​这会启动 Jupyter Notebook 并把项目文件打开在你的浏览器中。
 
 ### 数据
 
